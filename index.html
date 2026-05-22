@@ -697,13 +697,6 @@ const VOICINGS={
         {name:'fantasia',desc:'hybride — attaque sample, tenue synthétique',P:{body:0,air:0,move:0,space:0.95,fm:0.08,lpg:0.92,fold:0,worn:0,mod:0,vibe:0.12},ADSR:{a:0.001,d:0.28,s:0.85,r:1.2},ep:'d50'},
         {name:'orgue',desc:'drawbars ouverts, rotor rapide',P:{body:0,air:0,move:0,space:0.4,fm:0,lpg:0.85,fold:0,worn:0.2,mod:0.15,vibe:0.6},ADSR:{a:0.008,d:0,s:0.9,r:0.15},ep:'hammond'},
       ]},
-      {label:'— percussif —', engine:'patout', presets:[
-        {name:'init',desc:'voicing neutre',P:{body:0.4,air:0.4,move:0.2,space:0.4,fm:0,lpg:0.7,fold:0,worn:0.2,mod:0,vibe:0},ADSR:{a:0.002,d:0.2,s:0.1,r:0.2}},
-        {name:'industrial',desc:'métal froid',P:{body:0.8,air:0.6,move:0.4,space:0.3,fm:0.5,lpg:0.9,fold:0.4,worn:0.5,mod:0,vibe:0},ADSR:{a:0.001,d:0.15,s:0,r:0.2}},
-        {name:'bell',desc:'cloche, decay long',P:{body:0.2,air:0.5,move:0.05,space:0.7,fm:0.45,lpg:0.95,fold:0.05,worn:0.05,mod:0,vibe:0.06},ADSR:{a:0.001,d:0.9,s:0.05,r:0.9}},
-        {name:'metal',desc:'cymbale inversée',P:{body:0.15,air:0.7,move:0.5,space:0.6,fm:0.6,lpg:0.85,fold:0.35,worn:0.3,mod:0.08,vibe:0},ADSR:{a:0.05,d:0.7,s:0.15,r:0.8}},
-        {name:'void',desc:'présence maximale',P:{body:0.05,air:0.15,move:0.9,space:0.9,fm:-0.8,lpg:0.3,fold:0.7,worn:0.8,mod:0.15,vibe:0.1},ADSR:{a:0.5,d:0.8,s:0,r:1}},
-      ]},
       {label:'— nappe —', engine:'padin', presets:[
         {name:'init',desc:'voicing neutre',P:{body:0.5,air:0.5,move:0.3,space:0.6,fm:0,lpg:0.6,fold:0,worn:0.1,mod:0.1,vibe:0.05},ADSR:{a:0.2,d:0.4,s:0.7,r:0.7}},
         {name:'aurora',desc:'sawtooth lumineux, filtre ouvert, dérive lente',P:{body:0.2,air:0.82,move:0.18,space:0.88,fm:0,lpg:0.68,fold:0,worn:0.04,mod:0.06,vibe:0.06},ADSR:{a:0.45,d:0.5,s:0.75,r:1.0}},
@@ -713,16 +706,11 @@ const VOICINGS={
         
         {name:'deep',desc:'sub dominant, filtre très sombre',P:{body:0.92,air:0.08,move:0.22,space:0.62,fm:-0.2,lpg:0.32,fold:0,worn:0.18,mod:0.05,vibe:0},ADSR:{a:0.45,d:0.6,s:0.78,r:1.0}},
       ]},
-      {label:'— corde —', engine:'karps', presets:[
-        {name:'init',desc:'corde nylon — guitare classique, pincé doux',P:{body:0.55,air:0.25,move:0.02,space:0.55,fm:0.35,lpg:0.52,fold:0.15,worn:0.05,mod:0,vibe:0},ADSR:{a:0.001,d:0.5,s:0,r:0.35}},
-        {name:'asian strings',desc:'koto · sitar · shamisen — brillant, long',P:{body:0.18,air:0.82,move:0.08,space:0.78,fm:0.68,lpg:0.75,fold:0.08,worn:0.04,mod:0,vibe:0.08},ADSR:{a:0.001,d:0.9,s:0,r:0.65}},
-      ]},
     ],
     presets:[{name:'init',desc:'init',P:{body:0.4,air:0.4,move:0.2,space:0.4,fm:0,lpg:0.7,fold:0,worn:0.2},ADSR:{a:0.002,d:0.2,s:0.1,r:0.2}}],
   },
   padin:{sub:'pad·in — pad juno dense & organique',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'chorus\npad'},
   pianout:{sub:'pian·out — piano acoustique & corps moog',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'tone\nage'},
-  karps:{sub:'karp·s — karplus-strong waveguide',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'karp\n·str'},
   pianin:{sub:'pian·in — épianos & synthés organiques',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'tone\nage'},
     emilin:{sub:'emil·in — synthèse eurorack west coast',labels:{body:'harm',air:'timb',move:'morph',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'west\ncoast',
     presets:[]},
@@ -1182,7 +1170,6 @@ function getVM(){
   if(curEngine==='patout')return{mM:0.3,sM:0.5,pM:0.2,aN:0.5,dS:0.3,ep:false};
   if(curEngine==='padin')return{mM:0.8,sM:0.2,pM:1.2,aN:0.02,dS:2.5,cd:0.006,ep:false};
   if(curEngine==='pianout')return{mM:0.35,sM:0.05,pM:1,aN:0.04,dS:1,ep:true};
-  if(curEngine==='karps')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'karps'};
   if(curEngine==='pianin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'pianin'};
   if(curEngine==='emilin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'emilin'};
   if(curEngine==='samplin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'samplin'};
@@ -1199,7 +1186,6 @@ function getVM(){
 // ═══════════════════════════════════════════════════════
 function playNote(midi,vel=0.75,dest){
   if(curEngine==='samplin'){playSamplinNote(midi,vel);return;}
-  if(curEngine==='karps'){playKarpsNote(midi,vel);return;}
   if(curEngine==='emilin'){playEmilinNote(midi,vel);return;}
   // Retrig scope
   window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
@@ -1411,7 +1397,7 @@ function playNote(midi,vel=0.75,dest){
       so2a.connect(sf2);sf2.connect(sg2);sg2.connect(rootG);
       const pp1=ctx.createOscillator();pp1.type='sine';pp1.frequency.value=f;
       const pp2=ctx.createOscillator();pp2.type='sine';pp2.frequency.value=f*2;
-      const pp3=ctx.createOscillator();pp3.type='sine';pp3.frequency.value=f*3.012;
+      const pp3=ctx.createOscillator();pp3.type='sine';pp3.frequency.value=f*3;
       const pg1=ctx.createGain();pg1.gain.value=0.5*vm2.pM;
       const pg2=ctx.createGain();pg2.gain.value=0.28*vm2.pM;
       const pg3=ctx.createGain();pg3.gain.value=0.14*vm2.pM;
@@ -1594,15 +1580,15 @@ function playNote(midi,vel=0.75,dest){
   }
 
   const so=ctx.createOscillator();so.type='sawtooth';so.frequency.value=f;
-  const so2=ctx.createOscillator();so2.type='square';so2.frequency.value=f*(2.005+w*0.003);
+  const so2=ctx.createOscillator();so2.type='square';so2.frequency.value=f*(1.003+w*0.002);
   const sf=ctx.createBiquadFilter();sf.type='bandpass';sf.frequency.value=700+P.air*2200+m*400;sf.Q.value=1.3;
   const sg=ctx.createGain();sg.gain.value=m*P.air*vel*(vm.ep?0.1:0.6)*(vm.sM||1);
   so.connect(sf);so2.connect(sf);sf.connect(sg);sg.connect(rootG);
 
   const p1=ctx.createOscillator();p1.type='sine';p1.frequency.value=f*(1+w*0.0008*(Math.random()-0.5));
   const p2=ctx.createOscillator();p2.type='sine';p2.frequency.value=f*2*(1+0.0005*m+(vm.cd||0)*(Math.random()-0.5));
-  const p3=ctx.createOscillator();p3.type='sine';p3.frequency.value=f*3.012*(1+0.001*m);
-  const p4=ctx.createOscillator();p4.type='sine';p4.frequency.value=f*4.022*(1+0.0015*m);
+  const p3=ctx.createOscillator();p3.type='sine';p3.frequency.value=f*3;
+  const p4=ctx.createOscillator();p4.type='sine';p4.frequency.value=f*4;
   const pm=vm.ep?0:(vm.pM||1); // désactivé pour piano — les partiels ep prennent le relai
   const pg1=ctx.createGain();pg1.gain.value=0.5*pm;
   const pg2=ctx.createGain();pg2.gain.value=(0.28-m*0.05)*pm;
@@ -1617,15 +1603,15 @@ function playNote(midi,vel=0.75,dest){
   const fmM=ctx.createOscillator();const fmD=ctx.createGain();
   const fmRatio=P.fm>=0?1+P.fm*6:1/(1+Math.abs(P.fm)*6);
   fmM.frequency.value=f*Math.abs(fmRatio);
-  fmD.gain.value=Math.abs(P.fm)*f*(vm.ep===true||vm.ep==='pianin'?0.15:0.9);
+  fmD.gain.value=Math.abs(P.fm)*f*(vm.ep===true||vm.ep==='pianin'?0.15:0.35);
   fmM.connect(fmD);fmD.connect(p1.frequency);fmD.connect(p2.frequency);
 
   const wow=ctx.createOscillator();wow.frequency.value=0.6+Math.random()*0.5;
-  const wowD=ctx.createGain();wowD.gain.value=w*f*(vm.ep?0.004:0.012);
-  wow.connect(wowD);[mo,mo2,so,so2,p1].forEach(o=>wowD.connect(o.frequency));
+  const wowD=ctx.createGain();wowD.gain.value=w*f*(vm.ep?0.004:0.008);
+  wow.connect(wowD);[mo,mo2].forEach(o=>wowD.connect(o.frequency));
   const flutter=ctx.createOscillator();flutter.frequency.value=6+Math.random()*3;
-  const flD=ctx.createGain();flD.gain.value=w*f*(vm.ep?0.001:0.004);
-  flutter.connect(flD);[p1,p2].forEach(o=>flD.connect(o.frequency));
+  const flD=ctx.createGain();flD.gain.value=w*f*(vm.ep?0.001:0.002);
+  flutter.connect(flD);p1.frequency&&flD.connect(p1.frequency);
   const hiss=ctx.createOscillator();hiss.type='sawtooth';hiss.frequency.value=3+Math.random()*2;
   const hF=ctx.createBiquadFilter();hF.type='highpass';hF.frequency.value=4000;
   const hG=ctx.createGain();hG.gain.value=w*(vm.ep?0.003:0.01);
@@ -3510,333 +3496,10 @@ async function ensureWorklet(name,code){
 
 // Injecté comme blob URL pour rester single-file HTML
 
-const KS_WORKLET_CODE=`
-class KarplusStrongProcessor extends AudioWorkletProcessor {
-  static get parameterDescriptors(){
-    return [
-      {name:'damp',      defaultValue:0.98, minValue:0.5,  maxValue:0.9999},
-      {name:'inharm',    defaultValue:0.0,  minValue:-0.98,maxValue:0.98},
-      {name:'detune',    defaultValue:1.0,  minValue:0.99, maxValue:1.01},
-      {name:'gain',      defaultValue:0.8,  minValue:0,    maxValue:1},
-      {name:'saturation',defaultValue:0.0,  minValue:0,    maxValue:3},
-    ];
-  }
-
-  constructor(options){
-    super();
-    const {frequency,excitation,sampleRate}=options.processorOptions;
-    this._sr=sampleRate||44100;
-    this._f=frequency||440;
-    this._alive=true;
-    this._relTime=-1;
-    this._relLen=0;
-
-    // Buffer circulaire pour le waveguide
-    this._period=Math.max(4,Math.round(this._sr/this._f));
-    this._buf=new Float32Array(this._period+8).fill(0);
-    this._pos=0;
-
-    // Initialiser avec l'excitation
-    const exc=excitation||[];
-    for(let i=0;i<Math.min(this._period,exc.length);i++){
-      this._buf[i]=exc[i];
-    }
-
-    // État filtres
-    this._apX=0; this._apY=0; // allpass
-    this._lpPrev=0;            // LP
-    this._sampleCount=0;
-
-    this.port.onmessage=e=>{
-      if(e.data.type==='release'){
-        this._relTime=this._sampleCount;
-        this._relLen=e.data.samples||2205;
-      }
-      if(e.data.type==='stop') this._alive=false;
-    };
-  }
-
-  process(inputs,outputs,params){
-    if(!this._alive) return false;
-    const out=outputs[0][0];
-    if(!out) return true;
-    const len=out.length;
-
-    const damp  =params.damp[0]  ??0.98;
-    const inharm=params.inharm[0]??0;
-    const detune=params.detune[0]??1;
-    const gain  =params.gain[0]  ??0.8;
-    const sat   =params.saturation[0]??0;
-
-    // Recalculer la période si detune a changé
-    const period=Math.max(4,Math.round(this._sr/this._f*detune));
-    if(period!==this._period){
-      // Resize buffer en gardant le contenu
-      const newBuf=new Float32Array(period+8);
-      for(let i=0;i<Math.min(period,this._period);i++){
-        newBuf[i]=this._buf[(this._pos-this._period+i+this._buf.length)%this._buf.length];
-      }
-      this._buf=newBuf;
-      this._period=period;
-    }
-
-    for(let i=0;i<len;i++){
-      // Lire le sample retardé (une période)
-      const readPos=(this._pos+1)%this._period;
-      const delayed=this._buf[readPos];
-
-      // Filtre LP de la boucle K-S : H(z) = damp·(1+z^-1)/2
-      const lpOut=damp*(delayed+this._lpPrev)*0.5;
-      this._lpPrev=delayed;
-
-      // Filtre All-Pass pour l'inharmonicité
-      const c=inharm;
-      const apOut=c*lpOut+this._apX-c*this._apY;
-      this._apX=lpOut; this._apY=apOut;
-
-      // Saturation douce (worn)
-      const saturated=sat>0.01?Math.tanh(apOut*(1+sat))*0.9:apOut;
-
-      // Enveloppe de release
-      let envGain=1;
-      if(this._relTime>=0){
-        const elapsed=this._sampleCount-this._relTime;
-        envGain=Math.max(0,1-elapsed/this._relLen);
-        if(envGain<=0){this._alive=false;break;}
-      }
-
-      // Écrire dans le buffer circulaire
-      this._buf[this._pos]=saturated;
-      this._pos=(this._pos+1)%this._period;
-
-      out[i]=saturated*gain*envGain;
-      this._sampleCount++;
-    }
-
-    return this._alive;
-  }
-}
-
-registerProcessor('karplus-strong',KarplusStrongProcessor);
-`;
-
 let _ksWorkletReady=false;
 let _ksWorkletLoading=false;
 let _ksWorkletBlob=null;
-
-// Identique pour KarplusStrong (chargement séparé pour compatibilité)
-async function ensureKSWorklet(){
-  if(_ksWorkletReady)return true;
-  if(_ksWorkletLoading)return new Promise(res=>{
-    const t=setInterval(()=>{if(_ksWorkletReady){clearInterval(t);res(true);}},10);
-  });
-  _ksWorkletLoading=true;
-  const tryLoad=async(url)=>ctx.audioWorklet.addModule(url);
-  try{
-    const blob=new Blob([KS_WORKLET_CODE],{type:'application/javascript'});
-    await tryLoad(URL.createObjectURL(blob));
-    _ksWorkletReady=true;return true;
-  }catch(e1){
-    try{
-      const b64=btoa(unescape(encodeURIComponent(KS_WORKLET_CODE)));
-      await tryLoad('data:application/javascript;base64,'+b64);
-      _ksWorkletReady=true;return true;
-    }catch(e2){
-      console.warn('AudioWorklet KS non disponible, fallback buffer',e2.message||e2);
-      _ksWorkletLoading=false;return false;
-    }
-  }
-}
-
-// Active notes registry pour KS worklet
-const _ksNodes={};
-
-// ═══════════════════════════════════════════════════════
-// KARPLUS-STRONG — corde pincée physique
-// AudioWorklet KarplusStrongProcessor si disponible
-// Fallback : buffer Float32Array pré-calculé
-// Polyphonie via _ksNodes{} — chaque note = instance worklet séparée
-// ═══════════════════════════════════════════════════════
-async function playKarpsNote(midi,vel=0.75){
-  initCtx();
-  if(_ksNodes[midi])return;
-
-  const f=mfreq(midi);
-  const m=morph(midi);
-  const now=ctx.currentTime;
-  const gc=0.5+masterGainVal;
-  const w=P.worn;
-  const sr=ctx.sampleRate;
-
-  // Tenter AudioWorklet — fallback sur buffer si non disponible
-  const workletOK=await ensureKSWorklet();
-
-  // Paramètres physiques
-  // damp : plage resserrée sur zone audible — air élevé = corde brillante (sitar, koto)
-  const dampFreq=80+P.air*1800*(1-m*0.25);
-  const damp=0.5*(1+Math.exp(-dampFreq/900));
-  const B=0.00008*m*(1+P.fold*3);
-  const period=Math.max(4,Math.round(sr/f));
-  const c_ap=Math.max(-0.98,Math.min(0.98,(1-Math.sqrt(1+4*B*f*f/sr))/(2*B*f*f/sr+1e-10)*0.3));
-  const detuneAmt=1+P.move*(1+w)*0.006*(Math.random()-0.5)*2;
-  const decayLen=0.3+P.space*4*(1-m*0.5);
-  const excitAmt=0.3+Math.abs(P.fm)*0.6;
-
-  // Générer l'excitation (commune aux deux chemins)
-  const excitLen=Math.floor(sr*(0.004+m*0.008+excitAmt*0.012));
-  const excitData=new Float32Array(Math.max(8,excitLen));
-  for(let i=0;i<excitLen;i++){
-    const t=i/excitLen;
-    const env=t<0.1?t/0.1:Math.pow(1-t,1.5+excitAmt);
-    excitData[i]=(Math.random()*2-1)*env*(1+vel*0.5);
-  }
-
-  // Nœuds communs
-  const bodyFlt=ctx.createBiquadFilter();bodyFlt.type='peaking';
-  bodyFlt.frequency.value=60+P.body*300;bodyFlt.gain.value=P.body*9;bodyFlt.Q.value=0.9;
-  const tone=ctx.createBiquadFilter();tone.type='lowpass';
-  // Plage musicale pour cordes : 600Hz (sombre/archet) → 6000Hz (brillant/sitar)
-  tone.frequency.value=600+P.cut*5400;tone.Q.value=0.5;
-  const ageSat=ctx.createWaveShaper();
-  const ac=new Float32Array(256);
-  for(let i=0;i<256;i++){const x=(i*2/255)-1;ac[i]=Math.tanh(x*(1+w*2.5))*0.9;}
-  ageSat.curve=ac;
-  const env=ctx.createGain();
-  env.gain.setValueAtTime(0,now);
-  env.gain.linearRampToValueAtTime(vel*gc,now+0.001);
-  env.gain.exponentialRampToValueAtTime(0.001,now+decayLen);
-  const spread=(m-0.5)*0.2;
-  const merger=ctx.createChannelMerger(2);
-  const lG=ctx.createGain();lG.gain.value=0.5+spread;
-  const rG=ctx.createGain();rG.gain.value=0.5-spread;
-  bodyFlt.connect(tone);tone.connect(ageSat);ageSat.connect(env);
-  env.connect(lG);env.connect(rG);
-  lG.connect(merger,0,0);rG.connect(merger,0,1);
-  merger.connect(masterGainNode);
-  if(rev)env.connect(rev);
-
-  // Excitation buffer — utilisé seulement dans le fallback (worklet gère sa propre excitation)
-  const excitBuf=ctx.createBuffer(1,Math.max(8,excitLen),sr);
-  excitBuf.getChannelData(0).set(excitData);
-  const excitSrc=ctx.createBufferSource();excitSrc.buffer=excitBuf;
-  const excitFlt=ctx.createBiquadFilter();excitFlt.type='bandpass';
-  excitFlt.frequency.value=f*(1.8+vel*2);excitFlt.Q.value=0.6+vel*0.4;
-  const excitG=ctx.createGain();excitG.gain.value=vel*0.12*gc;
-  // NE PAS connecter ici — connexion conditionnelle dans les branches ci-dessous
-
-  let ksNode=null;
-
-  if(workletOK){
-    // ── Chemin AudioWorklet ────────────────────────────────────────────
-    const initExcit=Array.from(excitData.slice(0,period));
-
-    ksNode=new AudioWorkletNode(ctx,'karplus-strong',{
-      numberOfInputs:0,
-      numberOfOutputs:1,
-      outputChannelCount:[1],
-      processorOptions:{
-        frequency:f,
-        excitation:initExcit,
-        sampleRate:sr,
-      }
-    });
-
-    ksNode.parameters.get('damp').value=damp;
-    ksNode.parameters.get('inharm').value=c_ap;
-    ksNode.parameters.get('detune').value=detuneAmt;
-    ksNode.parameters.get('gain').value=vel*gc;
-    ksNode.parameters.get('saturation').value=w*1.5;
-
-    ksNode.connect(bodyFlt);
-    ksNode.start?.();
-
-    // Micro-transient click (très court, gain faible) — donne le "doigt sur la corde"
-    // NE PAS connecter excitSrc ici — l'excitation principale est déjà dans le buf[] worklet
-    const clickLen=Math.floor(sr*0.002);
-    const clickBuf=ctx.createBuffer(1,Math.max(4,clickLen),sr);
-    const cd=clickBuf.getChannelData(0);
-    for(let i=0;i<clickLen;i++)cd[i]=(Math.random()*2-1)*Math.pow(1-i/clickLen,3);
-    const clickSrc=ctx.createBufferSource();clickSrc.buffer=clickBuf;
-    const clickG=ctx.createGain();clickG.gain.value=vel*0.06*gc;
-    clickSrc.connect(clickG);clickG.connect(bodyFlt);
-    clickSrc.start(now);
-
-    _ksNodes[midi]={
-      _karps:true,_worklet:true,
-      ksNode,clickSrc,env,tone,ageSat,lG,rG,merger,
-      rel:0.05+P.space*1.5,decay:decayLen,f,
-    };
-
-  } else {
-    // ── Fallback : buffer pré-calculé ────────────────────────────────
-    const totalSamples=Math.round(sr*decayLen);
-    const ksBuffer=new Float32Array(totalSamples);
-    const initLen=Math.min(period,excitLen);
-    for(let i=0;i<initLen;i++) ksBuffer[i]=excitData[i]*(0.6+excitAmt*0.3);
-    let ap_x1=0,ap_y1=0,lpPrev=0;
-    const periodVar=Math.max(4,Math.round(period*detuneAmt));
-    for(let i=initLen;i<totalSamples;i++){
-      const prev=i-periodVar;if(prev<0){ksBuffer[i]=0;continue;}
-      const lpOut=damp*ksBuffer[prev]+(1-damp)*(prev>0?ksBuffer[prev-1]:0);
-      const apOut=c_ap*lpOut+ap_x1-c_ap*ap_y1;
-      ap_x1=lpOut;ap_y1=apOut;
-      ksBuffer[i]=w>0.05?Math.tanh(apOut*(1+w*1.5)):apOut;
-    }
-    let peak=0;for(const v of ksBuffer)peak=Math.max(peak,Math.abs(v));
-    if(peak>0.001)for(let i=0;i<totalSamples;i++)ksBuffer[i]/=peak;
-    const ksBuf=ctx.createBuffer(1,totalSamples,sr);
-    ksBuf.getChannelData(0).set(ksBuffer);
-    const ksSrc=ctx.createBufferSource();ksSrc.buffer=ksBuf;
-    // Excitation séparée (micro-transient) pour l'attaque dans le fallback aussi
-    excitSrc.connect(excitFlt);excitFlt.connect(excitG);excitG.connect(bodyFlt);
-    ksSrc.connect(bodyFlt);
-    ksSrc.start(now);ksSrc.stop(now+decayLen+0.1);
-
-    _ksNodes[midi]={
-      _karps:true,_worklet:false,
-      ksSrc,excitSrc,excitG,env,tone,ageSat,lG,rG,merger,
-      rel:0.05+P.space*1.5,decay:decayLen,f,
-    };
-  }
-
-  if(!workletOK)excitSrc.start(now);
-  active[midi]=_ksNodes[midi];
-  setStatus('karp·s · '+['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'][midi%12]+Math.floor(midi/12-1));
-  startVU();
-}
-
-function stopKarpsNote(midi){
-  recNoteOff(midi);
-  const n=_ksNodes[midi]||active[midi];
-  if(!n||!n._karps)return;
-  const now=ctx.currentTime;
-  const relLen=n.rel||0.1;
-
-  if(n._worklet&&n.ksNode){
-    // Envoyer le signal de release au worklet
-    n.ksNode.port.postMessage({
-      type:'release',
-      samples:Math.round(ctx.sampleRate*relLen)
-    });
-    setTimeout(()=>{
-      try{n.ksNode.port.postMessage({type:'stop'});}catch(e){}
-      try{n.excitSrc?.stop();}catch(e){}
-    },(relLen+0.1)*1000);
-  } else {
-    n.env.gain.cancelScheduledValues(now);
-    n.env.gain.setValueAtTime(n.env.gain.value,now);
-    n.env.gain.exponentialRampToValueAtTime(0.001,now+relLen);
-    setTimeout(()=>{
-      try{n.ksSrc?.stop();}catch(e){}
-      try{n.excitSrc?.stop();}catch(e){}
-    },(relLen+0.1)*1000);
-  }
-
-  delete _ksNodes[midi];
-  delete active[midi];
-  if(!Object.keys(active).length)stopVU();
-}
-
+;
 // ═══════════════════════════════════════════════════════
 // EMIL·IN — Plaits • Mutable Instruments
 // Hommage à Émilie Gillet (pichenettes)
@@ -4442,9 +4105,7 @@ function stopNote(midi){
   // Utiliser les flags de la note active pour identifier le bon moteur
   // (curEngine peut avoir changé depuis le playNote)
   const n=active[midi];
-  if(n&&n._karps){stopKarpsNote(midi);return;}
   if(n&&n._emilin){stopEmilinNote(midi);return;}
-  if(curEngine==='karps'){stopKarpsNote(midi);return;}
   if(curVoicing==='emilin'){stopEmilinNote(midi);return;}
   recNoteOff(midi);
   if(!n)return;
@@ -5093,7 +4754,7 @@ function _updateControls(v){
 }
 
 function setVoicing(v,el){
-  const parent={pianout:'patin',pianin:'patin',padin:'patout',karps:'patout'}[v]||v;
+  const parent={pianout:'patin',pianin:'patin',padin:'patout'}[v]||v;
   curVoicing=parent;
   curEngine=v;
   if(el!==null){
@@ -5118,9 +4779,9 @@ function buildMenu(){
   const sel=document.getElementById('preset-select');sel.innerHTML='';
 
   // Trouver le voicing parent (celui qui a les presetGroups)
-  const parentVoicing=(['pianout','pianin','padin','karps','patout'].includes(curVoicing))?
+  const parentVoicing=(['pianout','pianin','padin','patout'].includes(curVoicing))?
     (['pianout','pianin'].includes(curVoicing)?'patin':
-     ['padin','karps'].includes(curVoicing)?'patout':curVoicing)
+     'padin'===curVoicing?'patout':curVoicing)
     :curVoicing;
   const vo=VOICINGS[parentVoicing];
 
@@ -5129,7 +4790,7 @@ function buildMenu(){
   const userPresets=allUser.filter(p=>{
     const eng=p.engine||p.voicing;
     if(parentVoicing==='patin') return ['patin','pianout','pianin'].includes(eng)||p.voicing==='patin';
-    if(parentVoicing==='patout') return ['patout','padin','karps'].includes(eng)||p.voicing==='patout';
+    if(parentVoicing==='patout') return ['patout','padin'].includes(eng)||p.voicing==='patout';
     return eng===parentVoicing||p.voicing===parentVoicing;
   });
   if(userPresets.length){
@@ -5337,10 +4998,6 @@ function applyParam(param,val,fromBay=false){
     } else if(curEngine==='patin'||curEngine==='patout'||curEngine==='padin'){
       updateWorklets((n)=>{
         if(n&&n.fmD)n.fmD.gain.setTargetAtTime(Math.abs(P.fm)*0.9*(n.f||440),now,0.05);
-      });
-    } else if(curEngine==='karps'){
-      updateWorklets((n)=>{
-        if(n&&n.mod2G)n.mod2G.gain.setTargetAtTime(Math.abs(P.fm)*(n.f||440)*0.8,now,0.05);
       });
     }
     return;
