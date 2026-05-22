@@ -1574,7 +1574,7 @@ function playNote(midi,vel=0.75,dest){
   } else {
     mo.type='sawtooth';mo.frequency.value=f;
     mo2.type='sawtooth';mo2.frequency.value=f*(1-w*0.003);
-    mf.frequency.value=120+P.body*500*(1-m*0.6);mf.Q.value=4;
+    mf.frequency.value=120+P.body*500*(1-m*0.6);mf.Q.value=0.8;
     mg.gain.value=(1-m*0.7)*P.body*(vm.ep?0.12:0.7)*(vm.mM||1);
     mo.connect(mf);mo2.connect(mf);mf.connect(mg);mg.connect(rootG);
   }
@@ -1612,10 +1612,10 @@ function playNote(midi,vel=0.75,dest){
   const flutter=ctx.createOscillator();flutter.frequency.value=6+Math.random()*3;
   const flD=ctx.createGain();flD.gain.value=w*f*(vm.ep?0.001:0.002);
   flutter.connect(flD);p1.frequency&&flD.connect(p1.frequency);
-  const hiss=ctx.createOscillator();hiss.type='sawtooth';hiss.frequency.value=3+Math.random()*2;
+  const hiss=ctx.createOscillator();hiss.type='sine';hiss.frequency.value=0.001; // désactivé — inharmonique
   const hF=ctx.createBiquadFilter();hF.type='highpass';hF.frequency.value=4000;
-  const hG=ctx.createGain();hG.gain.value=w*(vm.ep?0.003:0.01);
-  hiss.connect(hF);hF.connect(hG);hG.connect(rootG);
+  const hG=ctx.createGain();hG.gain.value=0; // désactivé
+  // hiss déconnecté de rootG — gain nul, pas de contribution audio
 
   const fold=ctx.createWaveShaper();fold.curve=makeFold(P.fold);
   const sat=ctx.createWaveShaper();sat.curve=makeSat(w);
