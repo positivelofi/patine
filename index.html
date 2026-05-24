@@ -3699,9 +3699,7 @@ function playEmilinNote(midi,vel=0.75){
   const eng=getEmilinEngine();
 
   const rootG=ctx.createGain();
-  rootG.gain.setValueAtTime(0,now);
-  rootG.gain.linearRampToValueAtTime(vel*gc,now+att);
-  rootG.gain.exponentialRampToValueAtTime(Math.max(0.001,Math.max(0.001),vel*sus*gc),now+att+dec);
+  rootG.gain.value=1.0; // gain fixe — l'enveloppe est portée par ampGain uniquement
 
   // Exposer l'enveloppe pour la matrice de modulation
   emInitModulation();
@@ -4037,6 +4035,7 @@ function playEmilinNote(midi,vel=0.75){
 
 function _finalizeEmilin(midi,rootG,rel2,now,oscs,extraSrcs,vel){
   vel=vel||0.8;
+  const gc=0.5+masterGainVal;
   // Filtre échelle — Moog Ladder worklet si lp24 + moog, sinon BiquadFilter
   let emFilter;
   const ftmap={'lp24':'lowpass','lp12':'lowpass','hp':'highpass','bp':'bandpass','notch':'notch'};
@@ -4096,8 +4095,8 @@ function _finalizeEmilin(midi,rootG,rel2,now,oscs,extraSrcs,vel){
   // Enveloppe ADSR complète sur ampGain
   const att2=0.002+ADSR.a*0.15,dec2=0.05+ADSR.d*1.5,sus2=ADSR.s*0.9;
   ampGain.gain.setValueAtTime(0.001,now2);
-  ampGain.gain.linearRampToValueAtTime(vel_*0.9,now2+att2);
-  ampGain.gain.exponentialRampToValueAtTime(Math.max(0.001,vel_*sus2*0.9),now2+att2+dec2);
+  ampGain.gain.linearRampToValueAtTime(vel_*gc*0.9,now2+att2);
+  ampGain.gain.exponentialRampToValueAtTime(Math.max(0.001,vel_*gc*sus2*0.9),now2+att2+dec2);
 
   const NS=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
   const prev=active[midi]||{};
