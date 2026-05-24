@@ -2911,7 +2911,11 @@ function showEmilinBay(show){
   bay.style.display=show?'block':'none';
   if(show){
     buildReseauGrid();
-    if(ctx)emInitModulation();
+    if(ctx){
+      emInitModulation();
+      if(!_worklets["plaits"])ensureWorklet("plaits",PLAITS_WORKLET_CODE);
+      if(!_worklets["moog-ladder"])ensureWorklet("moog-ladder",MOOG_WORKLET_CODE);
+    }
   }
 }
 // ═══════════════════════════════════════════════════════
@@ -3676,6 +3680,9 @@ function getEmilinEngine(){
 // ═══════════════════════════════════════════════════════
 function playEmilinNote(midi,vel=0.75){
   initCtx();if(active[midi])return;
+  if(ctx&&!_worklets['plaits'])ensureWorklet('plaits',PLAITS_WORKLET_CODE);
+  if(ctx&&!_worklets['moog-ladder'])ensureWorklet('moog-ladder',MOOG_WORKLET_CODE);
+  if(ctx.state==='suspended')ctx.resume();
   window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
   recNoteOn(midi,vel);
 
