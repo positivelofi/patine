@@ -21,7 +21,7 @@ h1{font-size:12px;font-weight:500;letter-spacing:0.2em;color:#787878;text-transf
 #learn-hint{font-size:11px;color:#f90;letter-spacing:0.1em;height:11px}
 
 /* VOICE ROW */
-#row-voice{display:flex;align-items:center;gap:0;flex-wrap:nowrap;overflow:hidden}
+#row-voice{display:flex;align-items:center;gap:0;flex-wrap:nowrap;width:100%;justify-content:space-between}
 #strat{display:flex;border:0.5px solid #2a2a2a;border-radius:3px;overflow:hidden}
 .sv{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 10px;cursor:pointer;color:#787878;background:transparent;user-select:none;border-right:0.5px solid #2a2a2a;white-space:nowrap;transition:all 0.1s}
 .sv.on{color:#ccc;background:#111}
@@ -77,7 +77,7 @@ h1{font-size:12px;font-weight:500;letter-spacing:0.2em;color:#787878;text-transf
 #subway-status{font-size:11px;color:#787878;letter-spacing:0.08em;margin-left:auto}
 
 /* CONTROLS */
-#controls-row{display:flex;gap:0;align-items:flex-start;flex-wrap:nowrap}
+#controls-row{display:flex;gap:0;align-items:center;flex-wrap:nowrap;width:100%;justify-content:space-between}
 #knobs-sec{display:flex;gap:0.9rem;align-items:flex-end}
 .knob-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
 .knob-lbl{font-size:10px;letter-spacing:0.13em;color:#787878;text-transform:uppercase}
@@ -108,10 +108,7 @@ input[type=range].vsl.assigned{outline:1px solid #555}
 
 /* SAMPL·IN */
 
-#samplin-drop{display:none;border:0.5px dashed #2a2a2a;border-radius:2px;padding:3px 10px;cursor:pointer;font-size:10px;letter-spacing:0.1em;color:#686868;text-transform:uppercase;transition:all 0.12s;user-select:none;flex-shrink:0;white-space:nowrap;align-items:center;width:60px;box-sizing:border-box}
-#samplin-drop.active{display:flex;border-color:#333}
-/* Quand inactif — réserve l'espace mais invisible */
-#samplin-drop.inactive{display:flex;visibility:hidden;pointer-events:none}
+#samplin-drop{display:flex;border:0.5px dashed #2a2a2a;border-radius:2px;padding:2px 8px;cursor:pointer;font-size:9px;letter-spacing:0.1em;color:#686868;text-transform:uppercase;transition:all 0.12s;user-select:none;flex:1;white-space:nowrap;align-items:center;min-width:0;overflow:hidden}
 #samplin-drop:hover,#samplin-drop.drag{border-color:#787878;color:#aaa;background:#141414}
 #samplin-drop.loaded{border-style:solid;color:#787878}
 #samplin-controls{display:flex;align-items:center;gap:7px;flex:1;flex-wrap:wrap}
@@ -119,7 +116,7 @@ input[type=range].vsl.assigned{outline:1px solid #555}
 #samplin-name{font-size:11px;color:#787878;letter-spacing:0.08em;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* FX STRIP */
-#fx-row{display:flex;align-items:center;gap:0.7rem;padding:4px 0;border-bottom:0.5px solid #1a1a1a}
+#fx-row{display:flex;width:100%;align-items:center;gap:0.7rem;padding:4px 0;border-bottom:0.5px solid #1a1a1a}
 .fx-strip{display:flex;gap:5px}
 .fx-btn{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px;border:0.5px solid #2a2a2a;color:#787878;cursor:pointer;background:transparent;user-select:none;transition:all 0.12s}
 .fx-btn:hover{color:#787878;border-color:#787878}
@@ -171,7 +168,8 @@ input[type=range].vsl.assigned{outline:1px solid #555}
 }
 
 .mod-plaits .led-btn{min-width:18px;font-size:9px;padding:2px 3px;box-sizing:border-box;letter-spacing:0.05em}
-.mod-plaits [id^="em-m"].on{border-color:#4a7;color:#4a7}display:flex;align-items:stretch;gap:0;border:0.5px solid #141414;border-radius:2px;background:#080808}
+.mod-plaits [id^="em-m"].on{border-color:#4a7;color:#4a7}
+.mod-plaits .smp-row{display:flex;align-items:stretch;gap:0;border:0.5px solid #141414;border-radius:2px;background:#080808}
 .bay-row-lbl{writing-mode:vertical-lr;direction:rtl;font-size:10px;color:#686868;letter-spacing:0.2em;text-transform:uppercase;padding:6px 4px;border-right:0.5px solid #141414;flex-shrink:0;user-select:none}
 .bay-modules{display:flex;flex-wrap:nowrap;gap:0}
 .bay-modules .module{border-radius:0;border-top:none;border-bottom:none;border-left:none;flex:0 0 auto}
@@ -189,8 +187,10 @@ input[type=range].vsl.assigned{outline:1px solid #555}
 .vsl-lbl{font-size:13px;color:#787878;letter-spacing:0.06em;text-transform:uppercase;text-align:center}
 .vsl-vert{writing-mode:vertical-lr;direction:rtl;-webkit-appearance:none;appearance:none;width:6px;height:80px;background:#1a1a1a;border-radius:3px;outline:none;cursor:pointer}
 .vsl-vert::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:8px;border-radius:2px;background:#555;cursor:grab}
-.vsl-horiz{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:#1a1a1a;border-radius:2px;outline:none;cursor:pointer;margin:6px 0}
-.vsl-horiz::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;background:#333;cursor:grab}
+.vsl-horiz{-webkit-appearance:none;appearance:none;height:4px;background:#1a1a1a;border-radius:2px;outline:none;cursor:pointer}
+.vsl-horiz::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;background:#444;cursor:grab}
+.vsl-horiz::-moz-range-track{height:4px;background:#1a1a1a;border-radius:2px}
+.vsl-horiz::-moz-range-thumb{width:9px;height:9px;border-radius:50%;background:#444;border:none;cursor:grab}
 .led-row{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin:2px 0}
 .led-btn{min-width:32px;width:auto;height:22px;padding:0 8px;border-radius:2px;border:0.5px solid #1e1e1e;background:#0a0a0a;cursor:pointer;font-size:9px;color:#787878;display:flex;align-items:center;justify-content:center;letter-spacing:0.05em;text-transform:uppercase;user-select:none;transition:all 0.08s;white-space:nowrap;flex-shrink:0}
 .led-btn.on{background:#181818;color:#787878;border-color:#383838}
@@ -237,14 +237,6 @@ input[type=range].vsl.assigned{outline:1px solid #555}
   <div id="strat">
     <div class="sv on" id="sv-patin" onclick="setVoicing('patin',this)">pat·in</div>
     <div class="sv" id="sv-emilin" onclick="setVoicing('emilin',this)">emil·in</div>
-    <div class="sv" id="sv-samplin" onclick="setVoicing('samplin',this)">sampl·in</div>
-  </div>
-  <div id="samplin-drop" onclick="document.getElementById('samplin-file').click()"
-    ondragover="event.preventDefault();this.classList.add('drag')"
-    ondragleave="this.classList.remove('drag')"
-    ondrop="event.preventDefault();this.classList.remove('drag');loadSampleFile(event.dataTransfer.files[0])"
-    title="drop sample ou clic pour charger">
-    <span id="samplin-label">drop</span>
   </div>
   <input type="file" id="samplin-file" accept="audio/*" style="display:none" onchange="loadSampleFile(this.files[0])">
   <div id="preset-row">
@@ -260,9 +252,9 @@ input[type=range].vsl.assigned{outline:1px solid #555}
     <div class="vk-wrap"><div class="vk-lbl">vol</div><div class="vk lg" id="vk-vol" data-val="0.65"><span class="vk-val">65</span></div></div>
     <div class="vk-wrap"><div class="vk-lbl">gain</div><div class="vk sm" id="vk-gain" data-val="0.5"><span class="vk-val xs">50</span></div></div>
   </div>
+
 </div>
 
-<!-- FX INSERT STRIP -->
 <div id="fx-row">
   <div class="row-lbl" style="opacity:0.5">fx</div>
   <div class="fx-strip">
@@ -280,11 +272,10 @@ input[type=range].vsl.assigned{outline:1px solid #555}
   </div>
   <div class="vdiv" style="height:20px;margin:0 6px"></div>
   <div class="knob-wrap" style="gap:3px">
-    <div class="knob-lbl" style="font-size:10px;color:#333">morph</div>
-    <div class="knob" id="fx-morph-knob" data-val="0"><span class="knob-val">0</span></div>
+        <div class="knob-lbl" style="font-size:10px;color:#333">morph</div>
+        <div class="knob sm" id="fx-morph-knob" data-val="0"><span class="knob-val xs">0</span></div>
   </div>
 </div>
-
 
 
 <!-- ARP -->
@@ -365,15 +356,15 @@ input[type=range].vsl.assigned{outline:1px solid #555}
 
 <div id="controls-row">
   <div id="knobs-sec">
-    <div class="knob-wrap" id="wrap-body"><div class="knob" data-param="body" data-val="0.6"><span class="knob-val">60</span></div><div class="knob-lbl" id="lbl-body">body</div></div>
-    <div class="knob-wrap" id="wrap-air"><div class="knob" data-param="air" data-val="0.4"><span class="knob-val">40</span></div><div class="knob-lbl" id="lbl-air">air</div></div>
-    <div class="knob-wrap" id="wrap-move"><div class="knob" data-param="move" data-val="0.3"><span class="knob-val">30</span></div><div class="knob-lbl" id="lbl-move">move</div></div>
-    <div class="knob-wrap" id="wrap-space"><div class="knob" data-param="space" data-val="0.5"><span class="knob-val">50</span></div><div class="knob-lbl" id="lbl-space">space</div></div>
+    <div class="knob-wrap" id="wrap-body"><div class="knob-lbl" id="lbl-body">body</div><div class="knob" data-param="body" data-val="0.6"><span class="knob-val">60</span></div></div>
+    <div class="knob-wrap" id="wrap-air"><div class="knob-lbl" id="lbl-air">air</div><div class="knob" data-param="air" data-val="0.4"><span class="knob-val">40</span></div></div>
+    <div class="knob-wrap" id="wrap-move"><div class="knob-lbl" id="lbl-move">move</div><div class="knob" data-param="move" data-val="0.3"><span class="knob-val">30</span></div></div>
+    <div class="knob-wrap" id="wrap-space"><div class="knob-lbl" id="lbl-space">space</div><div class="knob" data-param="space" data-val="0.5"><span class="knob-val">50</span></div></div>
   </div>
   <div class="vdiv" id="vdiv-fm"></div>
   <div id="fm-wrap">
-    <div id="fm-ring"><span id="fm-val">0</span></div>
     <div class="knob-lbl" id="lbl-fm">fm</div>
+    <div id="fm-ring"><span id="fm-val">0</span></div>
   </div>
   <div class="vdiv"></div>
   <div id="adsr-sec">
@@ -382,15 +373,47 @@ input[type=range].vsl.assigned{outline:1px solid #555}
     <div class="sl-col"><input class="vsl" type="range" id="sl-s" data-param="adsr-s" min="0" max="1" step="0.01" value="0.3"></div>
     <div class="sl-col"><input class="vsl" type="range" id="sl-r" data-param="adsr-r" min="0" max="1" step="0.01" value="0.35"></div>
   </div>
-  <div class="vdiv"></div>
-  <div class="knob-wrap" id="wrap-lpg"><div class="knob" data-param="cut" data-val="0.5"><span class="knob-val">50</span></div><div class="knob-lbl" id="lbl-lpg">echelle</div></div>
-  <div class="knob-wrap" id="wrap-fold" style="margin-left:4px"><div class="knob" data-param="fold" data-val="0"><span class="knob-val">0</span></div><div class="knob-lbl" id="lbl-fold">fold</div></div>
-  <div class="vdiv" id="vdiv-mod"></div>
-  <div class="knob-wrap" id="wrap-mod" style="display:none"><div class="knob" data-param="mod" data-val="0"><span class="knob-val">0</span></div><div class="knob-lbl">trem</div></div>
-  <div class="knob-wrap" id="wrap-vibe" style="display:none;margin-left:4px"><div class="knob" data-param="vibe" data-val="0"><span class="knob-val">0</span></div><div class="knob-lbl">vibe</div></div>
+  <div class="vdiv" id="vdiv-wc"></div>
+  <div id="wc-sec">
+    <div id="wc-lbl">west<br>coast</div>
+    <div id="wc-knobs">
+      <div class="knob-wrap" id="wrap-lpg"><div class="knob lg" data-param="lpg" data-val="0.5"><span class="knob-val">50</span></div><div class="knob-lbl" id="lbl-lpg">lpg</div></div>
+      <div class="knob-wrap" id="wrap-fold"><div class="knob sm" data-param="fold" data-val="0"><span class="knob-val xs">0</span></div><div class="knob-lbl" id="lbl-fold">fold</div></div>
+      <!-- Knob mod — visible uniquement pour pian·in -->
+      <div class="knob-wrap" id="wrap-mod" style="display:none"><div class="knob" data-param="mod" data-val="0" style="width:34px;height:34px"><span class="knob-val xs">0</span></div><div class="knob-lbl">trem</div></div>
+      <!-- Knob vibe — leslie/vibrato, visible uniquement pour pian·in -->
+      <div class="knob-wrap" id="wrap-vibe" style="display:none"><div class="knob" data-param="vibe" data-val="0" style="width:34px;height:34px"><span class="knob-val xs">0</span></div><div class="knob-lbl">vibe</div></div>
+    </div>
+  </div>
   <div class="vdiv"></div>
   <div id="worn-sec">
-    <div class="knob-wrap" id="wrap-worn"><div class="knob" data-param="worn" data-val="0.3"><span class="knob-val">30</span></div><div id="worn-lbl">worn</div></div>
+    <div id="worn-lbl">worn</div>
+    <div class="knob-wrap" style="margin-top:4px"><div class="knob" style="width:34px;height:34px" data-param="worn" data-val="0.3"><span class="knob-val xs">30</span></div></div>
+  </div>
+
+  <div class="vdiv"></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+    <div id="glide-wrap" style="display:flex;align-items:center;gap:11px" title="portamento legato">
+      <div class="row-lbl" style="width:28px;text-align:right">glide</div>
+      <input type="range" id="glide-sl" min="0" max="1" step="0.01" value="0"
+        class="vsl-horiz" style="width:52px"
+        oninput="setGlide(parseFloat(this.value))">
+      <div class="row-lbl" style="width:28px" id="glide-val">off</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:11px" title="unisson détune">
+      <div class="row-lbl" style="width:28px;text-align:right">uni</div>
+      <input type="range" id="uni-sl" min="0" max="1" step="0.01" value="0"
+        class="vsl-horiz" style="width:52px"
+        oninput="setUni(parseFloat(this.value))">
+      <div class="row-lbl" style="width:28px" id="uni-val">off</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:11px" title="courbe de vélocité">
+      <div class="row-lbl" style="width:28px;text-align:right">vel</div>
+      <input type="range" id="vel-sl" min="0" max="1" step="0.01" value="0.5"
+        class="vsl-horiz" style="width:52px"
+        oninput="setVelCurve(parseFloat(this.value))">
+      <div class="row-lbl" style="width:28px" id="vel-val">50</div>
+    </div>
   </div>
 </div>
 
@@ -428,6 +451,24 @@ document.addEventListener('DOMContentLoaded',()=>{
 <!-- ═══ PLAITS ═══ -->
 <div class="module mod-plaits">
   <div class="module-lbl" style="letter-spacing:0.15em">plaits</div>
+
+  <!-- Rangée smp — sampling créatif -->
+  <div class="bay-sec">sample</div>
+  <div style="display:flex;gap:4px;align-items:center;padding:0 2px">
+    <div class="led-btn" id="em-m-smp" onclick="setPlaitsModel('smp',this)" title="Sample engine — joue le sample chargé via la baie">smp</div>
+    <div id="samplin-drop"
+      onclick="document.getElementById('samplin-file').click()"
+      ondragover="event.preventDefault();this.classList.add('drag')"
+      ondragleave="this.classList.remove('drag')"
+      ondrop="event.preventDefault();this.classList.remove('drag');loadSampleFile(event.dataTransfer.files[0])"
+      title="drop sample ou clic pour charger">
+      <span id="samplin-label">drop</span>
+    </div>
+    <select id="samplin-root" title="Note de référence du sample"
+      onchange="samplin.rootNote=parseInt(this.value)"
+      style="background:#0a0a0a;border:0.5px solid #2a2a2a;color:#686868;font-size:9px;font-family:monospace;padding:1px 2px;border-radius:2px;cursor:pointer;flex-shrink:0">
+    </select>
+  </div>
 
   <!-- Sélecteurs de modèles — deux rangées synth / noise, style façade MI -->
   <div class="bay-sec">model</div>
@@ -649,7 +690,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     <canvas id="scope-fft" width="280" height="90"></canvas>
   </div>
 </div>
-</div>
 
 <script>
 // ═══════════════════════════════════════════════════════
@@ -664,7 +704,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const VOICINGS={
   patin:{sub:'pat·in — instruments à touches',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'west\ncoast',
     presetGroups:[
-      {label:'— synth —', engine:'patin', presets:[
+      {label:'— synth —', engine:'patout', presets:[
         {name:'init',desc:'voicing neutre',P:{body:0.5,air:0.4,move:0.2,space:0.5,fm:0,lpg:0.6,fold:0,worn:0.2,mod:0,vibe:0},ADSR:{a:0.01,d:0.4,s:0.3,r:0.35}},
         
         {name:'avril',desc:'nu, decay long',P:{body:0.15,air:0.25,move:0.05,space:0.4,fm:0,lpg:0.55,fold:0,worn:0.15,mod:0,vibe:0.05},ADSR:{a:0.008,d:0.8,s:0.15,r:0.7}},
@@ -712,7 +752,7 @@ const VOICINGS={
   padin:{sub:'pad·in — pad juno dense & organique',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'chorus\npad'},
   pianout:{sub:'pian·out — piano acoustique & corps moog',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'tone\nage'},
   pianin:{sub:'pian·in — épianos & synthés organiques',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'tone\nage'},
-    emilin:{sub:'emil·in — synthèse eurorack west coast',labels:{body:'harm',air:'timb',move:'morph',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'west\ncoast',
+    emilin:{sub:'emil·in — synthèse modulaire & sampling créatif',labels:{body:'harm',air:'timb',move:'morph',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'west\ncoast',
     presets:[]},
   samplin:{sub:'sampl·in — sampler lofi multizone',labels:{body:'body',air:'air',move:'move',space:'space',fm:'fm',lpg:'cut',fold:'fold',worn:'worn'},wcLabel:'sampl\n·in',
     presets:[
@@ -736,6 +776,37 @@ let curEp='rhodes'; // ep du preset keys courant
 // ═══════════════════════════════════════════════════════
 const P={body:0.6,air:0.4,move:0.3,space:0.5,fm:0,cut:0.5,lpg:0.5,fold:0,worn:0.3,mod:0,vibe:0};
 const ADSR={a:0.01,d:0.4,s:0.3,r:0.35};
+let glideTime=0;           // durée du portamento en secondes (0 = off)
+let _lastNoteFreq=null;    // fréquence de la dernière note jouée (pour legato glide)
+let _activeNoteCount=0;    // nombre de notes actives (pour détection legato)
+let uniDetune=0;           // unisson détune (0 = off, 1 = ~20 cents)
+let velCurve=0.5;          // courbe de vélocité (0=flat, 0.5=linéaire, 1=très dynamique)
+
+function setGlide(v){
+  // v = 0→1 slider → glideTime 0→2s (exponentiel pour meilleur contrôle)
+  glideTime = v < 0.01 ? 0 : Math.pow(v,2)*2;
+  const lbl=document.getElementById('glide-val');
+  if(lbl)lbl.textContent=glideTime<0.01?'off':Math.round(glideTime*1000)+'ms';
+}
+
+function setUni(v){
+  uniDetune=v;
+  const lbl=document.getElementById('uni-val');
+  if(lbl)lbl.textContent=v<0.01?'off':'+'+Math.round(v*20)+'¢';
+}
+
+function setVelCurve(v){
+  velCurve=v;
+  const lbl=document.getElementById('vel-val');
+  if(lbl)lbl.textContent=Math.round(v*100);
+}
+
+function _gfreq(osc,freq,isLeg,fromFreq,t,gEnd){
+  if(isLeg&&fromFreq){
+    osc.frequency.setValueAtTime(fromFreq,t);
+    osc.frequency.linearRampToValueAtTime(freq,gEnd);
+  }else{osc.frequency.setValueAtTime(freq,t);}
+}
 let masterVol=0.65,masterGainVal=0.5;
 const FX={voodoo:false,california:false,shine:false,tokyo:false,cassette:false,pong:false,bugs:false,velvet:false,brume:false,twang:false,minuit:false};
 let fxMorph=0; // 0..1 — intensité expressive des FX
@@ -864,23 +935,38 @@ function toggleFX(name){
   rebuildFX();
 }
 
+// Cache des impulse responses — calculées une seule fois
+const _irCache={};
+function _getIR(name,fn){
+  if(!_irCache[name])_irCache[name]=fn();
+  return _irCache[name];
+}
+
 function rebuildFX(){
   if(!ctx)return;
   // Arrêter le bruit cassette avant de reconstruire
   try{if(window._cassetteNoise){window._cassetteNoise.stop();window._cassetteNoise=null;}}catch(e){}
-  // Rampe de gain vers 0 avant le disconnect pour éviter le claquement
+
+  // Fadeout 30ms puis reconstruction — évite tout claquement
+  const _t=ctx.currentTime;
   const _fadeOut=ctx.createGain();
   try{
-    masterGainNode.disconnect();
-    masterGainNode.connect(_fadeOut);_fadeOut.connect(ctx.destination);
-    const _t=ctx.currentTime;
+    // Insérer _fadeOut entre masterGainNode et la chaîne existante
+    // masterGainNode → _fadeOut → [ancienne chaîne]
+    masterGainNode.connect(_fadeOut);
+    _fadeOut.connect(ctx.destination);
     _fadeOut.gain.setValueAtTime(1,_t);
-    _fadeOut.gain.linearRampToValueAtTime(0,_t+0.025);
-    setTimeout(()=>{try{masterGainNode.disconnect();}catch(e){}},30);
+    _fadeOut.gain.linearRampToValueAtTime(0,_t+0.03);
   }catch(e){}
-  let last=masterGainNode;
-  // Réinitialiser les nœuds exposés
-  for(const k in fxNodes)delete fxNodes[k];
+
+  setTimeout(()=>{
+    // Maintenant silence atteint — déconnecter et reconstruire
+    try{masterGainNode.disconnect();}catch(e){}
+    try{_fadeOut.disconnect();}catch(e){}
+
+    let last=masterGainNode;
+    // Réinitialiser les nœuds exposés
+    for(const k in fxNodes)delete fxNodes[k];
 
   if(FX.voodoo){
     const fuzz=ctx.createWaveShaper();
@@ -1057,14 +1143,16 @@ function rebuildFX(){
     const nd=noiseBuf.getChannelData(0);for(let i=0;i<noiseLen;i++)nd[i]=(Math.random()*2-1)*0.018;
     const noiseSrc=ctx.createBufferSource();noiseSrc.buffer=noiseBuf;noiseSrc.loop=true;
     const noiseLP=ctx.createBiquadFilter();noiseLP.type='lowpass';noiseLP.frequency.value=6000;
-    noiseSrc.connect(noiseLP);noiseLP.connect(ctx.destination);noiseSrc.start();
+    const noiseG=ctx.createGain();noiseG.gain.value=0.0; // silence par défaut — morph contrôle
+    noiseSrc.connect(noiseLP);noiseLP.connect(noiseG);noiseG.connect(masterGainNode);
+    noiseSrc.start();
     // Stocker pour pouvoir l'arrêter
     window._cassetteNoise=noiseSrc;
     const mix=ctx.createGain();mix.gain.value=0.88;
     last.connect(tape);tape.connect(lp);lp.connect(wowDelay);wowDelay.connect(mix);
     last=mix;
-    // Morph : wowAmt.gain (wow profondeur) + flutAmt.gain + lp.frequency
-    fxNodes.cassette={wowAmt,flutAmt,lp};
+    // Morph : wowAmt.gain (wow) + flutAmt.gain (flutter) + noiseG.gain (bruit cassette)
+    fxNodes.cassette={wowAmt,flutAmt,lp,noiseG};
   }
 
   if(FX.pong){
@@ -1096,12 +1184,11 @@ function rebuildFX(){
   }
 
   if(FX.brume){
-    const brLen=ctx.sampleRate*2.5;
-    const brBuf=ctx.createBuffer(2,brLen,ctx.sampleRate);
-    for(let c=0;c<2;c++){
-      const d=brBuf.getChannelData(c);
-      for(let i=0;i<brLen;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(ctx.sampleRate*0.8))*(c===0?1:-1)*0.8;
-    }
+    const brBuf=_getIR('brume',()=>{
+      const buf=ctx.createBuffer(2,ctx.sampleRate*2.5,ctx.sampleRate);
+      for(let c=0;c<2;c++){const d=buf.getChannelData(c);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(ctx.sampleRate*0.8))*(c===0?1:-1)*0.8;}
+      return buf;
+    });
     const brRev=ctx.createConvolver();brRev.buffer=brBuf;
     const pitchDelay=ctx.createDelay(0.1);pitchDelay.delayTime.value=0.05;
     const pitchLFO=ctx.createOscillator();pitchLFO.frequency.value=20;
@@ -1122,15 +1209,12 @@ function rebuildFX(){
   }
 
   if(FX.minuit){
-    const mnLen=ctx.sampleRate*10;
-    const mnBuf=ctx.createBuffer(2,mnLen,ctx.sampleRate);
-    for(let c=0;c<2;c++){
-      const d=mnBuf.getChannelData(c);
-      for(let i=0;i<mnLen;i++){
-        d[i]=(Math.random()*2-1)*Math.exp(-i/(ctx.sampleRate*3.5))
-              *(1+0.3*Math.sin(i*0.0003*(c+1)));
-      }
-    }
+    const mnBuf=_getIR('minuit',()=>{
+      const buf=ctx.createBuffer(2,ctx.sampleRate*10,ctx.sampleRate);
+      for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);
+        for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(ctx.sampleRate*3.5))*(1+0.3*Math.sin(i*0.0003*(ch+1)));}
+      return buf;
+    });
     const mnRev=ctx.createConvolver();mnRev.buffer=mnBuf;
     const mnLP=ctx.createBiquadFilter();mnLP.type='lowpass';mnLP.frequency.value=600;mnLP.Q.value=0.4;
     const mnWet=ctx.createGain();mnWet.gain.value=0.35;
@@ -1143,11 +1227,27 @@ function rebuildFX(){
     fxNodes.minuit={mnWet,mnLP};
   }
 
-  last.connect(rev);last.connect(ctx.destination);
-  // Appliquer le morph courant
-  applyFxMorph(fxMorph);
-}
+    last.connect(rev);last.connect(ctx.destination);
+    // Appliquer le morph courant
+    applyFxMorph(fxMorph);
 
+    // FadeIn après reconstruction — transition douce
+    const _fadeIn=ctx.createGain();
+    try{masterGainNode.disconnect(ctx.destination);}catch(e){}
+    masterGainNode.connect(_fadeIn);_fadeIn.connect(ctx.destination);
+    const _t2=ctx.currentTime;
+    _fadeIn.gain.setValueAtTime(0,_t2);
+    _fadeIn.gain.linearRampToValueAtTime(1,_t2+0.03);
+    // Supprimer _fadeIn après le fadeIn (bypass)
+    setTimeout(()=>{
+      try{
+        masterGainNode.disconnect(_fadeIn);
+        masterGainNode.connect(ctx.destination);
+      }catch(e){}
+    },40);
+
+  },35); // attendre que le fadeOut soit terminé (30ms + marge)
+}
 
 // ═══════════════════════════════════════════════════════
 // SYNTHESIS
@@ -1172,36 +1272,51 @@ function getVM(){
   if(curEngine==='pianout')return{mM:0.35,sM:0.05,pM:1,aN:0.04,dS:1,ep:true};
   if(curEngine==='pianin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'pianin'};
   if(curEngine==='emilin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'emilin'};
-  if(curEngine==='samplin')return{mM:0,sM:0,pM:0,aN:0,dS:1,ep:'samplin'};
   // patin — moteur original hybride
   return{mM:1,sM:1,pM:1,aN:0.15,dS:1,ep:false};
 }
 
 // ═══════════════════════════════════════════════════════
 // MOTEUR AUDIO PRINCIPAL — dispatch selon curEngine
-// curEngine : patin/pianout/pianin/patout/padin/karps/emilin/samplin
+// curEngine : patin/pianout/pianin/patout/padin/emilin
 // curVoicing : toujours patin/emilin/samplin (le bouton actif)
 // P.cut → Moog Ladder (synth) ou emFilter (emilin)
 // Tous les moteurs ont fallback si worklet non disponible
 // ═══════════════════════════════════════════════════════
 function playNote(midi,vel=0.75,dest){
-  if(curEngine==='samplin'){playSamplinNote(midi,vel);return;}
+  if(curEngine==='samplin')return; // géré par playEmilinNote via EM.plaitsModel==='smp'
   if(curEngine==='emilin'){playEmilinNote(midi,vel);return;}
   // Retrig scope
   window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
   recNoteOn(midi,vel);
   initCtx();if(active[midi])return;
+
+  // Détection legato — y a-t-il une note active ?
+  const isLegato=glideTime>0&&_lastNoteFreq!==null&&Object.keys(active).length>0;
   const f=mfreq(midi),m=morph(midi),now=ctx.currentTime,w=P.worn;
+  const glideEnd=now+(isLegato?glideTime:0);
+  _lastNoteFreq=f;
+  // Courbe de vélocité — 0=flat(vel→0.7), 0.5=linéaire, 1=très dynamique
+  const velMapped = velCurve < 0.01
+    ? 0.7
+    : Math.pow(vel, 1 + (1-velCurve)*2) * (0.5 + velCurve*0.5) + (1-velCurve)*0.3;
+  const vel2=Math.max(0.05,Math.min(1,velMapped));
+
   const vm=getVM(),gc=0.5+masterGainVal;
   const att=0.002+ADSR.a*0.15,dec=0.05+ADSR.d*1.2*(vm.dS||1),sus=ADSR.s*0.8,rel=0.05+ADSR.r*2;
 
   const rootG=ctx.createGain();
-  // Gain normalisé : peak à vel*gc, sustain contrôle la forme de l'enveloppe pas le niveau
-  const peakGain=vel*gc*0.85;
-  const susGain=Math.max(0.001,peakGain*Math.max(0.05,sus));
-  rootG.gain.setValueAtTime(0,now);
-  rootG.gain.linearRampToValueAtTime(peakGain,now+att);
-  rootG.gain.exponentialRampToValueAtTime(susGain,now+att+dec);
+  const peakGain=vel2*gc*0.85;
+  const susGain=Math.max(0.001,vel2*gc*0.85*Math.max(0.05,sus));
+  if(!isLegato){
+    // Attaque normale
+    rootG.gain.setValueAtTime(0,now);
+    rootG.gain.linearRampToValueAtTime(peakGain,now+att);
+    rootG.gain.exponentialRampToValueAtTime(susGain,now+att+dec);
+  } else {
+    // Legato — pas de retriggering, garder le sustain courant
+    rootG.gain.setValueAtTime(susGain,now);
+  }
 
   // ── Filtre principal : mode piloté par P.cut (knob "echelle") ─────────
   // filterMode : 'moog' | 'acid' | 'lpg' — sélectable via boutons LED
@@ -1388,12 +1503,12 @@ function playNote(midi,vel=0.75,dest){
       const nG2=ctx.createGain();nG2.gain.value=velC*((vm2.aN||0.1)+w*0.12);
       nSrc2.connect(nFlt2);nFlt2.connect(nG2);nG2.connect(rootG);nSrc2.start(now);
       const mo2a=ctx.createOscillator();mo2a.type='sawtooth';mo2a.frequency.value=f;
-      const mf2=ctx.createBiquadFilter();mf2.type='lowpass';mf2.frequency.value=120+P.body*500*(1-m*0.6);mf2.Q.value=4;
+      const mf2=ctx.createBiquadFilter();mf2.type='lowpass';mf2.frequency.value=120+P.body*500*(1-m*0.6);mf2.Q.value=0.7;
       const mg2=ctx.createGain();mg2.gain.value=(1-m*0.7)*P.body*0.7*vm2.mM;
       mo2a.connect(mf2);mf2.connect(mg2);mg2.connect(rootG);
       const so2a=ctx.createOscillator();so2a.type='sawtooth';so2a.frequency.value=f;
-      const sf2=ctx.createBiquadFilter();sf2.type='bandpass';sf2.frequency.value=700+P.air*2200+m*400;sf2.Q.value=1.3;
-      const sg2=ctx.createGain();sg2.gain.value=m*P.air*0.6*vm2.sM;
+      const sf2=ctx.createBiquadFilter();sf2.type='bandpass';sf2.frequency.value=f*(2+P.air*4);sf2.Q.value=1.2;
+      const sg2=ctx.createGain();sg2.gain.value=m*P.air*0.4*vm2.sM;
       so2a.connect(sf2);sf2.connect(sg2);sg2.connect(rootG);
       const pp1=ctx.createOscillator();pp1.type='sine';pp1.frequency.value=f;
       const pp2=ctx.createOscillator();pp2.type='sine';pp2.frequency.value=f*2;
@@ -1543,79 +1658,82 @@ function playNote(midi,vel=0.75,dest){
 
   const mo=ctx.createOscillator();
   const mo2=ctx.createOscillator();
-  const mf=ctx.createBiquadFilter();mf.type='lowpass';
+  const mf=ctx.createGain(); mf.gain.value=1; // neutre — filtre délégué au Moog Ladder worklet
   const mg=ctx.createGain();
+  let driftG=null; // défini dans padin si nécessaire
 
   if(curEngine==='padin'){
-    // ── Moteur nappe enrichi ──────────────────────────────────────────
-    // Waveform variable selon body : 0=triangle(doux), 0.5=sawtooth, 1=square(dense)
-    const waveBody=P.body;
-    mo.type=waveBody<0.66?'sawtooth':'square';
-    mo.frequency.value=f;
-    mo2.type='sawtooth';mo2.frequency.value=f*(1+w*0.003+(Math.random()-0.5)*0.002);
-    // Filtre LP dont la coupure dépend de air : air bas = sombre, air haut = brillant
-    mf.frequency.value=200+P.air*3800+m*600;mf.Q.value=1.8+P.body*2.5;
-    mg.gain.value=(0.6+P.body*0.4)*(vm.mM||1)*vel*0.8;
-    mo.connect(mf);mo2.connect(mf);mf.connect(mg);mg.connect(rootG);
-    // Oscillateur de texture : sub-octave pour deep, octave haute pour aurora/silk
+    // ── Nappe : 3 sawtooth désaccordés → rootG direct (filtre = Moog Ladder)
+    mo.type='sawtooth'; _gfreq(mo,f,isLegato,_lastNoteFreq,now,glideEnd);
+    mo2.type='sawtooth'; _gfreq(mo2,f*(1+(Math.random()-0.5)*0.006),isLegato,_lastNoteFreq,now,glideEnd);
+    const moG=ctx.createGain(); moG.gain.value=(0.5+P.body*0.5)*vel;
+    mo.connect(moG); mo2.connect(moG); moG.connect(rootG);
+    // Sub-octave doux
     const sub=ctx.createOscillator();
     const subG=ctx.createGain();
-    sub.type='sine';
-    sub.frequency.value=P.body<0.4?f*0.5:f*2; // sub si body bas, harmonique si haut
-    subG.gain.value=P.body<0.4?P.body*0.5:(1-P.body)*0.3;
-    sub.connect(subG);subG.connect(rootG);sub.start(now);pianeOscs.push(sub);
-    // LFO de pitch lent pour le drift — indépendant du chorus
+    sub.type='sawtooth'; _gfreq(sub,f*0.5,isLegato,_lastNoteFreq*0.5,now,glideEnd);
+    subG.gain.value=P.body*0.25*vel;
+    sub.connect(subG); subG.connect(rootG); sub.start(now); pianeOscs.push(sub);
+    // Drift très lent
     const driftLFO=ctx.createOscillator();
-    const driftG=ctx.createGain();
-    driftLFO.frequency.value=0.08+P.move*0.35; // très lent : 0.08→0.43Hz
-    driftG.gain.value=P.move*f*0.004;
-    driftLFO.connect(driftG);driftG.connect(mo.frequency);driftG.connect(mo2.frequency);
-    driftLFO.start(now);pianeOscs.push(driftLFO);
+    driftG=ctx.createGain();
+    driftLFO.frequency.value=0.05+P.move*0.2;
+    driftG.gain.value=P.move*f*0.003;
+    driftLFO.connect(driftG); driftG.connect(mo.frequency); driftG.connect(mo2.frequency);
+    driftLFO.start(now); pianeOscs.push(driftLFO);
   } else {
-    mo.type='sawtooth';mo.frequency.value=f;
-    mo2.type='sawtooth';mo2.frequency.value=f*(1-w*0.003);
-    mf.frequency.value=120+P.body*500*(1-m*0.6);mf.Q.value=0.8;
-    mg.gain.value=(1-m*0.7)*P.body*(vm.ep?0.12:0.7)*(vm.mM||1);
-    mo.connect(mf);mo2.connect(mf);mf.connect(mg);mg.connect(rootG);
+    // ── Synth : 2 sawtooth → rootG direct (filtre = Moog Ladder)
+    mo.type='sawtooth'; _gfreq(mo,f,isLegato,_lastNoteFreq,now,glideEnd);
+    mo2.type='sawtooth'; _gfreq(mo2,f*(1+(Math.random()-0.5)*0.004),isLegato,_lastNoteFreq,now,glideEnd);
+    const moG=ctx.createGain(); moG.gain.value=(0.5+P.body*0.4)*vel;
+    mo.connect(moG); mo2.connect(moG); moG.connect(rootG);
   }
 
-  const so=ctx.createOscillator();so.type='sawtooth';so.frequency.value=f;
-  const so2=ctx.createOscillator();so2.type='square';so2.frequency.value=f*(1.003+w*0.002);
-  const sf=ctx.createBiquadFilter();sf.type='bandpass';sf.frequency.value=700+P.air*2200+m*400;sf.Q.value=1.3;
-  const sg=ctx.createGain();sg.gain.value=m*P.air*vel*(vm.ep?0.1:0.6)*(vm.sM||1);
-  so.connect(sf);so2.connect(sf);sf.connect(sg);sg.connect(rootG);
+  // Spectre harmonique (air) — harmoniques de f, directs dans rootG
+  const so=ctx.createOscillator(); so.type='sine'; _gfreq(so,f*2,isLegato,_lastNoteFreq*2,now,glideEnd);
+  const so2=ctx.createOscillator(); so2.type='sine'; _gfreq(so2,f*3,isLegato,_lastNoteFreq*3,now,glideEnd);
 
-  const p1=ctx.createOscillator();p1.type='sine';p1.frequency.value=f*(1+w*0.0008*(Math.random()-0.5));
-  const p2=ctx.createOscillator();p2.type='sine';p2.frequency.value=f*2*(1+0.0005*m+(vm.cd||0)*(Math.random()-0.5));
-  const p3=ctx.createOscillator();p3.type='sine';p3.frequency.value=f*3;
-  const p4=ctx.createOscillator();p4.type='sine';p4.frequency.value=f*4;
-  const pm=vm.ep?0:(vm.pM||1); // désactivé pour piano — les partiels ep prennent le relai
-  const pg1=ctx.createGain();pg1.gain.value=0.5*pm;
-  const pg2=ctx.createGain();pg2.gain.value=(0.28-m*0.05)*pm;
-  const pg3=ctx.createGain();pg3.gain.value=0.14*pm;
-  const pg4=ctx.createGain();pg4.gain.value=0.06*pm;
+  // sg — gain spectre harmonique (so/so2 → rootG)
+  const sg=ctx.createGain(); sg.gain.value=P.air*vel*0.2*(vm.sM||1);
+  so.connect(sg); so2.connect(sg); sg.connect(rootG);
+
+  // sf — alias neutre (rétrocompat active[midi])
+  const sf=sg;
+
+  // Partiels additifs — désactivés pour patout/padin (pm=0), actifs pour ep
+  const p1=ctx.createOscillator(); p1.type='sine'; _gfreq(p1,f,isLegato,_lastNoteFreq,now,glideEnd);
+  const p2=ctx.createOscillator(); p2.type='sine'; _gfreq(p2,f*2,isLegato,_lastNoteFreq*2,now,glideEnd);
+  const p3=ctx.createOscillator(); p3.type='sine'; _gfreq(p3,f*3,isLegato,_lastNoteFreq*3,now,glideEnd);
+  const p4=ctx.createOscillator(); p4.type='sine'; _gfreq(p4,f*4,isLegato,_lastNoteFreq*4,now,glideEnd);
+  const pm=vm.ep?0:(vm.pM||0);
+  const pg1=ctx.createGain(); pg1.gain.value=0.5*pm;
+  const pg2=ctx.createGain(); pg2.gain.value=0.28*pm;
+  const pg3=ctx.createGain(); pg3.gain.value=0.14*pm;
+  const pg4=ctx.createGain(); pg4.gain.value=0.06*pm;
   const pDec=ctx.createGain();
   pDec.gain.setValueAtTime(vel*0.7,now);
   pDec.gain.exponentialRampToValueAtTime(0.001,now+Math.max(0.5,3+m*2-w*0.5));
-  p1.connect(pg1);p2.connect(pg2);p3.connect(pg3);p4.connect(pg4);
-  [pg1,pg2,pg3,pg4].forEach(g=>g.connect(pDec));pDec.connect(rootG);
+  p1.connect(pg1); p2.connect(pg2); p3.connect(pg3); p4.connect(pg4);
+  [pg1,pg2,pg3,pg4].forEach(g=>g.connect(pDec)); pDec.connect(rootG);
 
-  const fmM=ctx.createOscillator();const fmD=ctx.createGain();
+  // FM — sur p1, index modéré
+  const fmM=ctx.createOscillator(); const fmD=ctx.createGain();
   const fmRatio=P.fm>=0?1+P.fm*6:1/(1+Math.abs(P.fm)*6);
   fmM.frequency.value=f*Math.abs(fmRatio);
-  fmD.gain.value=Math.abs(P.fm)*f*(vm.ep===true||vm.ep==='pianin'?0.15:0.35);
-  fmM.connect(fmD);fmD.connect(p1.frequency);fmD.connect(p2.frequency);
+  fmD.gain.value=Math.abs(P.fm)*f*(vm.ep===true||vm.ep==='pianin'?0.15:0.2);
+  fmM.connect(fmD); fmD.connect(p1.frequency);
 
-  const wow=ctx.createOscillator();wow.frequency.value=0.6+Math.random()*0.5;
-  const wowD=ctx.createGain();wowD.gain.value=w*f*(vm.ep?0.004:0.008);
-  wow.connect(wowD);[mo,mo2].forEach(o=>wowD.connect(o.frequency));
-  const flutter=ctx.createOscillator();flutter.frequency.value=6+Math.random()*3;
-  const flD=ctx.createGain();flD.gain.value=w*f*(vm.ep?0.001:0.002);
-  flutter.connect(flD);p1.frequency&&flD.connect(p1.frequency);
-  const hiss=ctx.createOscillator();hiss.type='sine';hiss.frequency.value=0.001; // désactivé — inharmonique
-  const hF=ctx.createBiquadFilter();hF.type='highpass';hF.frequency.value=4000;
-  const hG=ctx.createGain();hG.gain.value=0; // désactivé
-  // hiss déconnecté de rootG — gain nul, pas de contribution audio
+  // Wow (vibrato très lent) — sur mo uniquement
+  const wow=ctx.createOscillator(); wow.frequency.value=0.5+Math.random()*0.4;
+  const wowD=ctx.createGain(); wowD.gain.value=w*f*0.005;
+  wow.connect(wowD); wowD.connect(mo.frequency);
+
+  // Flutter + Hiss — désactivés
+  const flutter=ctx.createOscillator(); flutter.frequency.value=0.001;
+  const flD=ctx.createGain(); flD.gain.value=0; flutter.connect(flD);
+  const hiss=ctx.createOscillator(); hiss.frequency.value=0.001;
+  const hF=ctx.createBiquadFilter(); hF.frequency.value=20000;
+  const hG=ctx.createGain(); hG.gain.value=0; hiss.connect(hF);
 
   const fold=ctx.createWaveShaper();fold.curve=makeFold(P.fold);
   const sat=ctx.createWaveShaper();sat.curve=makeSat(w);
@@ -1635,16 +1753,23 @@ function playNote(midi,vel=0.75,dest){
     // rootG → tone → ageSat → lG/rG
     // Pour piane, le tremolo modLfoGain se connecte à rootG.gain directement
     rootG.connect(tone);tone.connect(fold);fold.connect(sat);sat.connect(ageSat);ageSat.connect(lG);ageSat.connect(rG);
-    active[midi]={rootG,tone,ageSat,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,fmD,hiss,rel,merger,lG,rG,epOscs,pianeOscs,f,mf,mg,sf,sg,driftG:typeof driftG!=='undefined'?driftG:null,_vm:vm};
+    active[midi]={rootG,tone,ageSat,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,fmD,hiss,rel,merger,lG,rG,epOscs,pianeOscs,f,mf,mg,sf,sg,driftG,_vm:vm};
   } else if(_worklets['moog-ladder']==='ready'&&_fmode!=='lpg'){
     // ── Moog Ladder (moog ou acid) ────────────────────────────────────
     const moogNode=new AudioWorkletNode(ctx,'moog-ladder',{
       numberOfInputs:1,numberOfOutputs:1,outputChannelCount:[1]
     });
     moogNode.parameters.get('cutoff').value=cutoffNorm;
-    // Acid : resonance haute (auto-oscillante à partir de 0.85), drive fort
-    const res=_fmode==='acid'?0.2+P.worn*0.75:P.worn*0.6;
-    const drive=_fmode==='acid'?0.4+P.worn*0.6:P.worn*0.8;
+    let res, drive;
+    if(_fmode==='acid'){
+      res=0.2+P.worn*0.75; drive=0.4+P.worn*0.6;
+    } else if(curEngine==='padin'){
+      // Nappe — filtre doux, pas de résonance agressive
+      res=P.worn*0.25;        // résonance très douce
+      drive=P.worn*0.3;       // drive subtil
+    } else {
+      res=P.worn*0.6; drive=P.worn*0.8;
+    }
     moogNode.parameters.get('resonance').value=res;
     moogNode.parameters.get('drive').value=drive;
     moogNode.parameters.get('gain').value=1.0;
@@ -1652,7 +1777,7 @@ function playNote(midi,vel=0.75,dest){
     rootG.connect(moogIn);moogIn.connect(moogNode);
     moogNode.connect(fold);fold.connect(sat);
     sat.connect(lG);sat.connect(rG);
-    active[midi]={rootG,moogNode,moogIn,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,hiss,rel,merger,lG,rG,epOscs,pianeOscs,f,mf,mg,sf,sg,driftG:typeof driftG!=='undefined'?driftG:null,_vm:vm,_fmode};
+    active[midi]={rootG,moogNode,moogIn,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,fmD,hiss,rel,merger,lG,rG,epOscs,pianeOscs,f,mf,mg,sf,sg,driftG,_vm:vm,_fmode};
   } else {
     // ── Mode LPG (vrai Low Pass Gate) ou fallback BiquadFilter ────────
     const flt=ctx.createBiquadFilter();flt.type='lowpass';
@@ -1676,13 +1801,26 @@ function playNote(midi,vel=0.75,dest){
     }
     rootG.connect(flt);flt.connect(fold);fold.connect(sat);
     sat.connect(lG);sat.connect(rG);
-    active[midi]={rootG,flt,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,hiss,rel,merger,lG,rG,epOscs,pianeOscs,mf,mg,sf,sg,driftG:typeof driftG!=='undefined'?driftG:null,_vm:vm,_fmode};
+    active[midi]={rootG,flt,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,fmD,hiss,rel,merger,lG,rG,epOscs,pianeOscs,mf,mg,sf,sg,driftG,_vm:vm,_fmode};
   }
   lG.connect(merger,0,0);rG.connect(merger,0,1);
   const finalDest=dest||masterGainNode;
   merger.connect(finalDest);
 
-  // S'assurer que le contexte est actif (autoplay policy)
+  // ── Unisson — voix doublée légèrement désaccordée ─────────────────
+  if(uniDetune>0.01&&(curEngine==='patout'||curEngine==='padin')){
+    const uniCents=uniDetune*20; // 0→20 cents
+    const uniRatio=Math.pow(2,uniCents/1200);
+    const uniOsc=ctx.createOscillator();
+    const uniG=ctx.createGain();
+    uniOsc.type='sawtooth';
+    _gfreq(uniOsc,f*uniRatio,isLegato,_lastNoteFreq?_lastNoteFreq*uniRatio:null,now,glideEnd);
+    uniG.gain.value=vel2*gc*0.4; // plus doux que l'oscillateur principal
+    uniOsc.connect(uniG);uniG.connect(rootG);
+    uniOsc.start(startT);pianeOscs.push(uniOsc);
+    // stocker pour stopNote
+    active[midi] && (active[midi].uniOsc=uniOsc);
+  }
   if(ctx.state==='suspended')ctx.resume();
 
   // Démarrer les oscillateurs — protéger contre now légèrement dans le passé
@@ -1716,7 +1854,7 @@ function playNote(midi,vel=0.75,dest){
     window._pianeModState[midi]={modLfoGain,vibeLfoGain,f:mfreq(midi)};
   }
 
-  document.getElementById('morph-ind').style.left=(morph(midi)*95)+'%';
+  const _mi=document.getElementById('morph-ind');if(_mi)_mi.style.left=(morph(midi)*95)+'%';
   const NAMES=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
   const age=w<0.2?'neuf':w<0.6?'usé':'worn';
   setStatus(NAMES[midi%12]+Math.floor(midi/12-1)+' · '+curVoicing+' · '+age+(arp.on?' · arp':''));
@@ -1887,7 +2025,16 @@ function emFilterType(type,el){
 function setPlaitsModel(model,el){
   EM.plaitsModel=model;
   document.querySelectorAll('[id^="em-m"]').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
+  if(el)el.classList.add('on');
+
+  // Mode smp — activer emilin si pas déjà actif
+  if(model==='smp'){
+    if(curVoicing!=='emilin'){
+      const emilinBtn=document.getElementById('sv-emilin');
+      if(emilinBtn)setVoicing('emilin',emilinBtn);
+    }
+    return;
+  }
   // Changement instantané — setValueAtTime, pas setTargetAtTime
   // (évite les resets répétés pendant la transition exponentielle)
   if(ctx){
@@ -3530,6 +3677,12 @@ function playEmilinNote(midi,vel=0.75){
   initCtx();if(active[midi])return;
   window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
   recNoteOn(midi,vel);
+
+  // Mode smp — router vers le sampler
+  if(EM.plaitsModel==='smp'){
+    playEmilinSamplinNote(midi,vel);
+    return;
+  }
   const f=mfreq(midi),m=morph(midi),now=ctx.currentTime;
   const gc=0.5+masterGainVal,w=P.worn;
   const harm=P.body,timbre=P.air,morph_=P.move;
@@ -3978,25 +4131,21 @@ function stopEmilinNote(midi){
   if(!Object.keys(active).length)stopVU();
 }
 
-function playSamplinNote(midi,vel=0.75){
-  initCtx();if(!samplin.buffer){setStatus('sampl·in — drop a sample');return;}
+function playEmilinSamplinNote(midi,vel=0.75){
+  if(!samplin.buffer){setStatus('emil·in smp — drop a sample');return;}
   if(active[midi])return;
-  window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
-  recNoteOn(midi,vel);
   const now=ctx.currentTime;
   const rootFreq=440*Math.pow(2,(samplin.rootNote-69)/12);
   const targetFreq=mfreq(midi);
   let ratio=targetFreq/rootFreq;
   const semitones=midi-samplin.rootNote;
-  // Multi-zone : sélection du buffer selon le registre
+  // Multi-zone
   let buf=samplin.buffer;
   let zoneComp=1;
   if(semitones<=-12&&samplin.zones?.low){buf=samplin.zones.low;zoneComp=2;}
   else if(semitones>=13&&samplin.zones?.high){buf=samplin.zones.high;zoneComp=0.5;}
   else if(samplin.zones?.mid)buf=samplin.zones.mid;
-  // Worn = instabilité de vitesse (vieux sampler)
   const wornDrift=P.worn*(Math.random()-0.5)*0.025;
-  // Move = détune intentionnel (lofi tape flutter)
   const moveDrift=P.move*(Math.random()-0.5)*0.012;
   const playRate=Math.max(0.05,Math.min(8,ratio*zoneComp*(1+wornDrift+moveDrift)));
 
@@ -4007,24 +4156,37 @@ function playSamplinNote(midi,vel=0.75){
   const att=0.002+ADSR.a*0.15,dec=0.05+ADSR.d*1.5;
   const sus=ADSR.s*0.9,rel2=0.05+ADSR.r*2;
   const gc=0.5+masterGainVal;
-  const env=ctx.createGain();
-  env.gain.setValueAtTime(0,now);
-  env.gain.linearRampToValueAtTime(vel*gc,now+att);
-  env.gain.exponentialRampToValueAtTime(Math.max(0.001,Math.max(0.001),vel*sus*gc),now+att+dec);
+  const rootG=ctx.createGain();
+  rootG.gain.setValueAtTime(0,now);
+  rootG.gain.linearRampToValueAtTime(vel*gc,now+att);
+  rootG.gain.exponentialRampToValueAtTime(Math.max(0.001,vel*sus*gc),now+att+dec);
 
-  // Formant correction — compense le chipmunk/muffling de la transposition
+  // Formant correction
   const formantShift=Math.log2(ratio);
   const formantFlt=ctx.createBiquadFilter();formantFlt.type='lowshelf';
   formantFlt.frequency.value=900;formantFlt.gain.value=-formantShift*4.5;
-  // Tone — Body = chaud (lowpass), Air = brillant (highshelf)
+  // Body (harm) = brillance, Air (timb) = ton
   const bodyFlt=ctx.createBiquadFilter();bodyFlt.type='lowpass';
   bodyFlt.frequency.value=400+P.body*6000;bodyFlt.Q.value=0.4;
   const airFlt=ctx.createBiquadFilter();airFlt.type='highshelf';
   airFlt.frequency.value=3500;airFlt.gain.value=(P.air-0.5)*6;
+  // Cut — filtre lowpass (echelle)
+  const cutFlt=ctx.createBiquadFilter();cutFlt.type='lowpass';
+  cutFlt.frequency.value=30*Math.pow(600,P.cut);cutFlt.Q.value=0.5;
+  // Fold + Sat
+  const sampFold=ctx.createWaveShaper();sampFold.curve=makeFold(P.fold);
+  const sampSat=ctx.createWaveShaper();sampSat.curve=makeSat(P.worn*0.5);
 
-  src.connect(formantFlt);formantFlt.connect(bodyFlt);bodyFlt.connect(airFlt);airFlt.connect(env);
-  env.connect(masterGainNode);
-  if(rev)env.connect(rev);
+  src.connect(formantFlt);formantFlt.connect(bodyFlt);bodyFlt.connect(airFlt);
+  airFlt.connect(cutFlt);cutFlt.connect(sampFold);sampFold.connect(sampSat);sampSat.connect(rootG);
+  rootG.connect(masterGainNode);
+
+  // Reverb
+  let sampRevSend=null;
+  if(revGain&&P.space>0.01){
+    sampRevSend=ctx.createGain();sampRevSend.gain.value=P.space*0.6;
+    rootG.connect(sampRevSend);sampRevSend.connect(revGain);
+  }
 
   src.start(now);
   if(!samplin.loop){
@@ -4033,8 +4195,8 @@ function playSamplinNote(midi,vel=0.75){
   }
 
   const NS=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
-  active[midi]={_samplin:true,src,env,rel:rel2};
-  setStatus('sampl·in · '+NS[midi%12]+Math.floor(midi/12-1)+' · ×'+playRate.toFixed(2));
+  active[midi]={_samplin:true,src,env:rootG,cutFlt,sampFold,sampSat,bodyFlt,airFlt,sampRevSend,rel:rel2};
+  setStatus('smp · '+NS[midi%12]+Math.floor(midi/12-1)+' · ×'+playRate.toFixed(2));
   startVU();
 }
 
@@ -4065,7 +4227,10 @@ async function loadSampleFile(file){
     if(drop)drop.classList.add('loaded');
     const shortName=file.name.replace(/\.[^.]+$/,'');
     if(lbl)lbl.textContent='✓ '+shortName;
-    setStatus('sampl·in — '+shortName+' · '+Math.round(buf.duration*10)/10+'s · '+Math.round(buf.sampleRate/1000)+'kHz');
+    setStatus('smp — '+shortName+' · '+Math.round(buf.duration*10)/10+'s · '+Math.round(buf.sampleRate/1000)+'kHz');
+    // Activer automatiquement le mode smp dans plaits
+    const smpBtn=document.getElementById('em-m-smp');
+    if(smpBtn&&EM.plaitsModel!=='smp')setPlaitsModel('smp',smpBtn);
   }catch(e){if(lbl)lbl.textContent='error';console.error(e);}
 }
 
@@ -4101,10 +4266,11 @@ async function buildSamplinZones(buf){
 // Arrêt d'une note — dispatch selon curEngine
 // Gère le release et nettoie active[midi]
 function stopNote(midi){
-  if(curVoicing==='samplin'){stopSamplinNote(midi);return;}
+  if(curVoicing==='samplin'){stopSamplinNote(midi);return;} // rétrocompat
   // Utiliser les flags de la note active pour identifier le bon moteur
   // (curEngine peut avoir changé depuis le playNote)
   const n=active[midi];
+  if(n&&n._samplin){stopEmilinNote(midi);return;} // smp engine dans emilin
   if(n&&n._emilin){stopEmilinNote(midi);return;}
   if(curVoicing==='emilin'){stopEmilinNote(midi);return;}
   recNoteOff(midi);
@@ -4125,6 +4291,9 @@ function stopNote(midi){
     try{[n.mo,n.mo2,n.so,n.so2,n.p1,n.p2,n.p3,n.p4,n.wow,n.flutter,n.fmM,n.hiss]
       .forEach(o=>{if(o&&o.stop)o.stop();});}catch(e){}
     if(n.pianeOscs)n.pianeOscs.forEach(o=>{try{if(o&&o.stop)o.stop();}catch(e){}});
+    // driftG LFO (padin) + uniOsc (unisson)
+    if(n.driftG&&n.driftG.stop)try{n.driftG.stop();}catch(e){}
+    if(n.uniOsc&&n.uniOsc.stop)try{n.uniOsc.stop();}catch(e){}
   },((rel+0.2)*1000));
   delete active[midi];
   if(window._pianeModState)delete window._pianeModState[midi];
@@ -4744,12 +4913,7 @@ function _updateControls(v){
   show('wrap-lpg',true);show('wrap-space',true);
   show('vdiv-mod',true);show('wrap-mod',true);
   show('wrap-vibe',true);
-  // samplin row — toujours visible, active si voicing samplin
-  const sd=document.getElementById('samplin-drop');
-  if(sd){
-    sd.classList.toggle('active',v==='samplin');
-    sd.classList.toggle('inactive',v!=='samplin');
-  }
+  // samplin-drop est dans le module plaits — toujours visible
   showEmilinBay(v==='emilin');
 }
 
@@ -4976,6 +5140,20 @@ function applyParam(param,val,fromBay=false){
     _applyParamBusy=false;
   }
 
+  // ── Sampl·in (smp engine dans emilin) — mise à jour temps réel ────
+  if((curVoicing==='samplin'||EM.plaitsModel==='smp')&&ctx){
+    const now2=ctx.currentTime;
+    Object.values(active).forEach(n=>{
+      if(!n._samplin)return;
+      if(param==='cut'&&n.cutFlt)n.cutFlt.frequency.setTargetAtTime(30*Math.pow(600,val),now2,0.05);
+      if(param==='fold'&&n.sampFold)n.sampFold.curve=makeFold(val);
+      if(param==='worn'&&n.sampSat)n.sampSat.curve=makeSat(val*0.5);
+      if(param==='body'&&n.bodyFlt)n.bodyFlt.frequency.setTargetAtTime(400+val*6000,now2,0.05);
+      if(param==='air'&&n.airFlt)n.airFlt.gain.setTargetAtTime((val-0.5)*6,now2,0.05);
+      if(param==='space'&&n.sampRevSend)n.sampRevSend.gain.setTargetAtTime(val*0.6,now2,0.05);
+    });
+  }
+
   // ── Helper : mettre à jour les AudioParams worklet en temps réel ──
   const now=ctx?.currentTime||0;
   const updateWorklets=(callback)=>Object.values(active).forEach(n=>callback(n,now));
@@ -5069,8 +5247,9 @@ function applyParam(param,val,fromBay=false){
       if(n.ageSat){const ac=new Float32Array(256);for(let i=0;i<256;i++){const x=(i*2/255)-1;ac[i]=Math.tanh(x*(1+val*2.5))*0.9;}n.ageSat.curve=ac;}
       // Moog Ladder — drive ET resonance (caractère/usure du filtre)
       if(n.moogNode){
-        n.moogNode.parameters.get('drive').setTargetAtTime(val*0.8,now,0.05);
-        n.moogNode.parameters.get('resonance').setTargetAtTime(val*0.6,now,0.05);
+        const isPadin=curEngine==='padin';
+        n.moogNode.parameters.get('drive').setTargetAtTime(isPadin?val*0.3:val*0.8,now,0.05);
+        n.moogNode.parameters.get('resonance').setTargetAtTime(isPadin?val*0.25:val*0.6,now,0.05);
       }
       // Piano Additive — inharmonicité via worn
       if(n._pianoWorklet)n._pianoWorklet.parameters.get('inharmonicity').setTargetAtTime(val*0.0004,now,0.05);
@@ -5386,10 +5565,11 @@ function applyFxMorph(val){
     metal.gain.setTargetAtTime(1+m*6,t,0.05);               // métal 1→7dB
   }
   if(fxNodes.cassette){
-    const{wowAmt,flutAmt,lp}=fxNodes.cassette;
+    const{wowAmt,flutAmt,lp,noiseG}=fxNodes.cassette;
     wowAmt.gain.setTargetAtTime(0.001+m*0.007,t,0.05);      // wow profondeur
     flutAmt.gain.setTargetAtTime(0.0002+m*0.002,t,0.05);    // flutter
     lp.frequency.setTargetAtTime(9000-m*3500,t,0.05);       // filtre coupure
+    if(noiseG)noiseG.gain.setTargetAtTime(m*m*0.015,t,0.05); // bruit tape — quadratique, doux au début
   }
   if(fxNodes.pong){
     const{fbLR,fbRL,gL,gR}=fxNodes.pong;
@@ -5663,6 +5843,11 @@ function panicStop(){
     (n.extraSrcs||[]).forEach(s=>{try{s.stop();}catch(e){}});
     [n.nSrc,n.sSrc,n.src,n.ksSrc,n.excitSrc].forEach(s=>{try{if(s)s.stop();}catch(e){}});
     [...(n.pianeOscs||[]),...(n.epOscs||[])].forEach(o=>{try{o.stop();}catch(e){}});
+    [n.mo,n.mo2,n.so,n.so2,n.p1,n.p2,n.p3,n.p4,n.wow,n.flutter,n.fmM,n.hiss].forEach(o=>{try{if(o&&o.stop)o.stop();}catch(e){}});
+    // driftG LFO, uniOsc, samplin src
+    if(n.driftG&&n.driftG.stop)try{n.driftG.stop();}catch(e){}
+    if(n.uniOsc&&n.uniOsc.stop)try{n.uniOsc.stop();}catch(e){}
+    if(n._samplin&&n.src)try{n.src.stop();}catch(e){}
     [n.mo,n.mo2,n.so,n.so2,n.p1,n.p2,n.p3,n.p4,n.wow,n.flutter,n.fmM,n.hiss].forEach(o=>{try{if(o)o.stop();}catch(e){}});
   });
   for(const k in active)delete active[k];
@@ -6092,19 +6277,17 @@ subway.who='off';
 
 <p>La baie Emil·in est organisée en deux rangées logiques :</p>
 
-<p><strong>Rangée 1 — signal :</strong> échelle → voile. Le signal audio naît dans le cœur (engine), est sculpté par l'échelle (filtre), et mis en forme dynamiquement par le voile (LPG).</p>
+<p><strong>Rangée 1 — source :</strong> plaits → échelle. Le module plaits contient les 16 engines et leurs paramètres. Le signal passe ensuite dans l'échelle — le filtre Moog Ladder 4 pôles.</p>
 
-<p><strong>Rangée 2 — modulation :</strong> pente → marée. Les signaux de contrôle sont générés par la pente (enveloppes complexes) et la marée (LFOs). Ils alimentent la matrice réseau.</p>
+<p><strong>Rangée 2 — modulation :</strong> pente → marée. Les signaux de contrôle sont générés ici et alimentent la matrice réseau.</p>
 
-<p><span class="kw">cœur</span> — l'oscillateur source. Quatre paramètres stricts, fidèles à Plaits : <span class="kw">harm</span> (HARMONICS), <span class="kw">timb</span> (TIMBRE), <span class="kw">morph</span> (MORPH), <span class="kw">fm</span> (index FM externe). Seize engines, mêmes quatre axes. C'est l'unification qui rend la baie cohérente.</p>
+<p><span class="kw">plaits</span> — 16 engines de synthèse inspirés du module Plaits de Mutable Instruments. Sélecteurs de modèles + sliders harm/timb/morph/fm synchronisés avec les knobs globaux.</p>
 
-<p><span class="kw">échelle</span> — le filtre 24dB inspiré du Moogerfooger MF-101. Cinq modes : lp24 (4 pôles, chaud), lp12 (2 pôles, ouvert), hp (passe-haut), bp (passe-bande, nasal), notch (coupe-bande). Drive dans le filtre — comme les vrais ladder filters analogiques. Key follow fait suivre la coupure à la hauteur de la note.</p>
+<p><span class="kw">échelle</span> — filtre Moog Ladder 4 pôles (AudioWorklet). Cutoff contrôlé par le knob <span class="kw">echelle</span>, résonance et drive par <span class="kw">worn</span>. Trois modes : moog (standard), acid (résonance haute), lpg (amplitude couplée).</p>
 
-<p><span class="kw">voile</span> — Low Pass Gate mono-canal inspiré de l'Optomix de Make Noise et du Buchla 292. Couple amplitude et timbre comme un instrument acoustique. Six couleurs de réponse temporelle : clean, vctr, buch, warm, gate, sprg. Contrôlé par le knob <span class="kw">lpg</span> global.</p>
+<p><span class="kw">pente</span> — inspiré de MATHS de Make Noise. Deux canaux de fonction generator (rise/fall/form), déclenchables ou bouclables en loop. Voir le tutoriel dédié.</p>
 
-<p><span class="kw">pente</span> — inspiré de MATHS de Make Noise. Deux canaux de fonction générale (rise/fall/curve/loop). En loop, des LFOs aux formes asymétriques impossibles avec un LFO standard. EOC enchaîne les canaux pour des enveloppes cycliques complexes. Sources p1 et p2 dans la matrice réseau.</p>
-
-<p><span class="kw">marée</span> — quatre LFOs permanents inspirés du Batumi de XAOC Devices. Formes sin/tri/sq. Mode free (vitesses indépendantes), quad (phases décalées de 90°), div (divisions d'horloge — poly-rythmes de modulation). Sources l1/l2/l3/l4 dans la matrice réseau.</p>
+<p><span class="kw">marée</span> — quatre LFOs permanents. Formes variables, phases indépendantes. Sources l1/l2/l3/l4 dans la matrice réseau.</p>
 
 <h2>la matrice réseau 10×10</h2>
 
@@ -6123,6 +6306,73 @@ subway.who='off';
 <p>La communauté a un nom pour ce phénomène : <span class="kw">GAS</span> — Gear Acquisition Syndrome. Reconnaissable aux symptômes suivants : passer ses soirées sur Modulargrid à construire des racks imaginaires, regarder des démos YouTube de modules qu'on ne peut pas se permettre, et éprouver une fierté disproportionnée pour un son qui dure quatre secondes et que personne d'autre n'entend.</p>
 <p>Patine existe en partie pour offrir un espace d'exploration modulaire sans ces frictions — un rack gratuit, limité, qui tient dans un navigateur. Il ne remplacera jamais la satisfaction d'un vrai patch, le son d'un vrai vactrol, ou le plaisir de câbler quelque chose d'inexplicable à 2h du matin. Mais il ne coûte rien et votre conjoint·e ne saura pas que vous êtes encore là.</p>
 <div class="quote">Certains se passionnent infiniment pour cette pratique presque ésotérique. Emil·in est une invitation à comprendre pourquoi — sans risque de tomber dans l'addiction. Ou alors... n'est-ce que le premier pas ?</div>
+</div></details>
+
+
+<details><summary>tutoriel — pente & marée : comprendre les modulateurs</summary><div class="detail-body">
+
+<h2>le module pente — inspiré de Maths (Make Noise)</h2>
+
+<p>Le module pente est une réinterprétation du <span class="kw">Maths</span> de Make Noise — lui-même inspiré du <span class="kw">Serge Dual Universal Slope Generator</span> des années 70. C'est l'un des modules les plus fondamentaux et polyvalents de tout le vocabulaire modulaire.</p>
+
+<p>Le principe est simple : une tension qui monte d'un point à un autre selon une courbe, puis redescend. La puissance vient de ce que ce mouvement peut être déclenché, bouclé, et combiné.</p>
+
+<h2>les deux canaux — p1 et p2</h2>
+
+<p>Patine dispose de deux canaux pente indépendants. Chaque canal a quatre paramètres :</p>
+
+<ul>
+  <li><span class="kw">rise</span> — durée de la montée. De quelques millisecondes (attaque percussive) à plusieurs secondes (fondu lent).</li>
+  <li><span class="kw">fall</span> — durée de la descente. Indépendante de la montée — attaque instantanée avec decay très long, ou inverse.</li>
+  <li><span class="kw">form</span> — forme de la courbe. Logarithmique (percussive), linéaire, exponentielle (organique). Ce paramètre est une balance continue entre ces comportements.</li>
+  <li><span class="kw">loop</span> — mode de fonctionnement. En <span class="kw">one-shot</span>, le canal se déclenche à chaque note et produit une enveloppe. En <span class="kw">loop</span>, il se boucle en continu et devient un LFO.</li>
+</ul>
+
+<h2>pente en mode one-shot — l'enveloppe expressive</h2>
+
+<p>En mode one-shot, p1 et p2 sont des enveloppes indépendantes de l'ADSR global. La différence avec l'ADSR classique : la forme de la courbe est contrôlable. Une courbe logarithmique sonne percussive et immédiate. Une courbe exponentielle imite les enveloppes acoustiques réelles.</p>
+
+<div class="note">Patch suggéré : <span class="kw">p1 → cutoff</span> avec rise court et fall long, forme log. L'enveloppe de filtre s'ouvre instantanément et se referme lentement — son typique des synthés analogiques 70s. Ajuster fall change radicalement le caractère.</div>
+
+<h2>pente en mode loop — le LFO à morphologie variable</h2>
+
+<p>En mode loop, le canal oscille en continu. La beauté par rapport à un LFO classique : les durées de montée et descente sont <em>indépendantes</em>. Un LFO classique monte et descend à la même vitesse. Avec la pente on peut avoir une montée en 0.1s et une descente en 4s — le signal passe 97% du temps à descendre lentement et monte en flash.</p>
+
+<p>Les formes résultantes :</p>
+<ul>
+  <li><span class="kw">rise=fall, form linéaire</span> → triangle parfait.</li>
+  <li><span class="kw">rise court, fall long, form log</span> → dent de scie inversée. Monte en flash, descend lentement.</li>
+  <li><span class="kw">rise long, fall court, form exp</span> → dent de scie. Monte lentement, retombe brutalement.</li>
+  <li><span class="kw">form extrême</span> → quasi-carrée. Signal reste près de 0 ou 1 longtemps avant de basculer.</li>
+</ul>
+
+<div class="note">Patch suggéré : <span class="kw">p1 loop → harm</span> avec cycle asymétrique (rise 3s, fall 0.5s). Les HARMONICS de l'engine Plaits descendent lentement puis remontent en flash — mouvement respiratoire très particulier, impossible avec un LFO standard.</div>
+
+<h2>combiner p1 et p2</h2>
+
+<p>Sur le vrai Maths, chaque canal émet un trigger à la fin de sa montée (EOR) et à la fin de sa chute (EOF). Ces triggers peuvent déclencher l'autre canal. Dans Patine, quand les deux canaux sont actifs dans le réseau, ils peuvent se déclencher mutuellement.</p>
+
+<p>Cela crée des rythmes composites :</p>
+<ul>
+  <li>p1 très court déclenche p2 long → son percussif qui laisse une traîne longue</li>
+  <li>p1 lent déclenche p2 rapide → tremolo lent avec un accent sharp à chaque cycle</li>
+  <li>Des patterns rythmiques asymétriques émergent naturellement des différences de durée</li>
+</ul>
+
+<h2>le module marée — les quatre LFOs permanents</h2>
+
+<p>La marée est inspirée du module <span class="kw">Tides</span> de Mutable Instruments — un oscillateur/LFO/enveloppe à morphologie variable. Dans Patine, la marée fournit quatre LFOs permanents <span class="kw">l1, l2, l3, l4</span> qui tournent en continu, indépendamment des notes jouées.</p>
+
+<p>Chaque LFO a une fréquence, une forme (sine, triangle, sawtooth, random S&H) et une phase. Les décaler en phase crée des mouvements stéréo naturels — l1 et l2 à 180° donnent une respiration gauche/droite.</p>
+
+<h2>philosophie d'utilisation</h2>
+
+<p>La <strong>pente</strong> vit dans le temps de la note. Elle est déclenchée, elle répond au geste, elle expire. C'est le mouvement expressif — l'attaque, le fondu, l'accent. Elle humanise.</p>
+
+<p>La <strong>marée</strong> vit dans le temps de la pièce. Elle tourne indépendamment, elle ignore les notes. C'est le mouvement structurel — la texture qui respire, le filtre qui dérive, l'espace qui pulse. Elle déstabilise doucement.</p>
+
+<div class="quote">La combinaison des deux est le cœur du jeu expressif dans Emil·in. Marée→cutoff pour le mouvement de fond, pente→vca pour l'accent par note. Le son vit à deux échelles temporelles simultanément.</div>
+
 </div></details>
 
 <details id="ms-voicings"><summary>guide des voicings</summary><div class="detail-body">
@@ -6149,541 +6399,245 @@ subway.who='off';
 
 <p><strong>— keys —</strong> Cinq moteurs distincts évoquant des instruments électromécaniques et électroniques. Chaque preset correspond à un moteur DSP différent — passer de l'un à l'autre change fondamentalement le timbre. Presets : épiano, reed, fm, fantasia, orgue.</p>
 
-<p><strong>— percussif —</strong> Sons conçus autour d'une attaque et d'un decay. Chaque partiel a sa propre enveloppe de décroissance. Presets : industrial, bell, metal, void.</p>
-
-<p><strong>— nappe —</strong> Oscillateur sawtooth avec chorus BBD inspiré du Roland Juno. Trem et vibe sont particulièrement musicaux ici. Presets : aurora, velvet, drift, silk, deep.</p>
-
-<p><strong>— corde —</strong> L'algorithme Karplus-Strong — corde pincée physique. L'expression passe entièrement par la vélocité et le timing. Presets : init, asian strings.</p>
-
-<h2>emil·in — la baie modulaire</h2>
-
-<p>Voir la section dédiée <span class="kw">emil·in & la baie</span> dans ce manuel.</p>
-
-<h2>sampl·in — sampler lofi multizone</h2>
-
-<p>Trois zones (grave ×0.5, médium ×1, aigu ×2) limitent les artefacts de transposition. Le <span class="kw">worn</span> ajoute l'instabilité d'un vieux sampler 12-bit. Le <span class="kw">move</span> ajoute un flutter de cassette. Trem et vibe fonctionnent sur les samples joués.</p>
-
-<div class="note">Suggestions créatives : sampler un pad et le rejouer crée un timbre hybride. Avec cassette + pong, n'importe quel sample devient autre chose. Worn élevé + tape78 → lo-fi maximal.</div>
-
-<h2>les contrôles communs</h2>
-
-<p>Les dix knobs sont présents sur tous les voicings mais leur effet varie selon le moteur actif. Le même geste produit des résultats différents selon le contexte — c'est ce qui rend l'exploration sonore riche.</p>
-
-<h3>synth — moteur hybride worn</h3>
-<table>
-  <tr><th>knob</th><th>effet dans synth</th></tr>
-  <tr><td>body</td><td>gain du corps grave — filtre LP résonant sur les sawtooth graves</td></tr>
-  <tr><td>air</td><td>gain du médium — filtre bandpass sur les sawtooth médium</td></tr>
-  <tr><td>move</td><td>morphing registre grave↔aigu — balance entre les trois couches</td></tr>
-  <tr><td>space</td><td>reverb wet</td></tr>
-  <tr><td>fm</td><td>ratio et index FM sur les partiels — de doux (fm=0) à métallique (fm élevé)</td></tr>
-  <tr><td>cut</td><td>filtre global LP — brillance générale</td></tr>
-  <tr><td>fold</td><td>wavefolder — saturation additive, harmoniques pairs</td></tr>
-  <tr><td>worn</td><td>dérive de pitch (wow/flutter), saturation, bruit de fond — l'âge analogique</td></tr>
-  <tr><td>trem</td><td>tremolo LFO sur l'amplitude</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO sur le pitch</td></tr>
-</table>
-
-<h3>piano — partiels additifs</h3>
-<table>
-  <tr><th>knob</th><th>effet dans piano</th></tr>
-  <tr><td>body</td><td>corps grave — oscillateurs sawtooth en sous-couche, gain réduit</td></tr>
-  <tr><td>air</td><td>médium — présence médium en sous-couche</td></tr>
-  <tr><td>move</td><td>morphing registre</td></tr>
-  <tr><td>space</td><td>reverb wet + longueur du decay</td></tr>
-  <tr><td>fm</td><td>légère modulation FM sur les partiels</td></tr>
-  <tr><td>cut</td><td>tone — coupure du filtre LP sur la chaîne piano</td></tr>
-  <tr><td>fold</td><td>wavefolder en sous-couche — distorsion douce</td></tr>
-  <tr><td>worn</td><td>inharmonicité (partiels légèrement hors accord) + dispersion de phase — vieux piano</td></tr>
-  <tr><td>trem</td><td>tremolo LFO</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO</td></tr>
-</table>
-
-<h3>keys — épianos & orgues</h3>
-<table>
-  <tr><th>knob</th><th>épiano (rhodes)</th><th>reed (wurli)</th><th>cp80</th><th>fm (dx7)</th><th>fantasia (d50)</th><th>orgue (hammond)</th></tr>
-  <tr><td>body</td><td>corps grave en couche</td><td>corps grave en couche</td><td>corps grave en couche</td><td>corps grave en couche</td><td>corps grave en couche</td><td>drawbars 16'+5⅓'+4' (harmoniques graves)</td></tr>
-  <tr><td>air</td><td>médium en couche</td><td>filtre bandpass sur le 3e harmonique (nasalité)</td><td>médium en couche</td><td>médium en couche</td><td>médium en couche</td><td>drawbars 4'+2⅔'+2'+1⅗'+1⅓'+1' (harmoniques aigus)</td></tr>
-  <tr><td>move</td><td>profondeur tremolo interne</td><td>chorus BBD</td><td>inharmonicité (B coefficient)</td><td>mouvement partiels tenue</td><td>mouvement partiels</td><td>vitesse du Leslie (lent→rapide)</td></tr>
-  <tr><td>space</td><td>longueur du decay</td><td>longueur du decay</td><td>longueur du decay</td><td>longueur du decay</td><td>reverb wet</td><td>reverb wet</td></tr>
-  <tr><td>fm</td><td>fm subtil sur partiels</td><td>fm subtil sur partiels</td><td>fm subtil sur partiels</td><td>ratio FM (7→21) + index de modulation</td><td>léger détune des partiels</td><td>fm subtil sur drawbars</td></tr>
-  <tr><td>cut</td><td>Moog cutoff</td><td>Moog cutoff</td><td>Moog cutoff</td><td>Moog cutoff</td><td>Moog cutoff</td><td>Moog cutoff</td></tr>
-  <tr><td>fold</td><td>bark — saturation de l'harmonique 2x (cloche)</td><td>overdrive lames</td><td>saturation douce</td><td>saturation douce</td><td>saturation douce</td><td>drive préamplificateur</td></tr>
-  <tr><td>worn</td><td>dérive analogique</td><td>saturation des lames (overdrive)</td><td>dérive de cordes</td><td>dérive digitale</td><td>dérive partiels</td><td>bruit de contact des touches</td></tr>
-  <tr><td>trem</td><td>tremolo LFO</td><td>tremolo LFO</td><td>tremolo LFO</td><td>tremolo LFO</td><td>tremolo LFO</td><td>tremolo LFO</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO</td><td>vibrato LFO</td><td>vibrato LFO</td><td>vibrato LFO</td><td>vibrato LFO</td><td>Leslie (via vibe)</td></tr>
-</table>
-
-<h3>nappe — pad juno enrichi</h3>
-<table>
-  <tr><th>knob</th><th>effet dans nappe</th></tr>
-  <tr><td>body</td><td>waveform : bas=sawtooth doux, haut=square dense + sub-octave</td></tr>
-  <tr><td>air</td><td>fréquence de coupure du filtre LP — sombre (bas) à brillant (haut)</td></tr>
-  <tr><td>move</td><td>taux du LFO de drift (dérive lente du pitch) + profondeur chorus BBD</td></tr>
-  <tr><td>space</td><td>reverb wet</td></tr>
-  <tr><td>fm</td><td>léger FM sur les partiels</td></tr>
-  <tr><td>cut</td><td>filtre Moog 4 pôles (4 pôles, 24dB/oct) — cutoff + résonance</td></tr>
-  <tr><td>fold</td><td>wavefolder</td></tr>
-  <tr><td>worn</td><td>saturation légère + légère dérive</td></tr>
-  <tr><td>trem</td><td>tremolo LFO</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO</td></tr>
-</table>
-
-<h3>percussif — decay spectral</h3>
-<table>
-  <tr><th>knob</th><th>effet dans percussif</th></tr>
-  <tr><td>body</td><td>gain du corps grave — masse de l'impact</td></tr>
-  <tr><td>air</td><td>gain du médium — présence de l'attaque</td></tr>
-  <tr><td>move</td><td>texture/grain — modulation de pitch sur l'attaque</td></tr>
-  <tr><td>space</td><td>reverb wet — de sec à spatial</td></tr>
-  <tr><td>fm</td><td>ratio+index FM — de harmonique (0) à très métallique (élevé)</td></tr>
-  <tr><td>cut</td><td>filtre global LP — brillance</td></tr>
-  <tr><td>fold</td><td>wavefolder — saturation métallique</td></tr>
-  <tr><td>worn</td><td>saturation + bruit de fond</td></tr>
-  <tr><td>trem</td><td>tremolo LFO</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO</td></tr>
-</table>
-
-<h3>corde — Karplus-Strong</h3>
-<table>
-  <tr><th>knob</th><th>effet dans corde</th></tr>
-  <tr><td>body</td><td>excitation initiale — énergie du pincement</td></tr>
-  <tr><td>air</td><td>amortissement — corde étouffée (bas) à résonante (haut)</td></tr>
-  <tr><td>move</td><td>detune — légère instabilité de pitch</td></tr>
-  <tr><td>space</td><td>longueur du decay de la corde</td></tr>
-  <tr><td>fm</td><td>inharmonicité — corde idéale (0) à très inharmonique (élevé)</td></tr>
-  <tr><td>cut</td><td>tone — brillance de la corde</td></tr>
-  <tr><td>fold</td><td>richesse harmonique de l'excitation</td></tr>
-  <tr><td>worn</td><td>âge de la corde — neuve (0) à usée (1)</td></tr>
-  <tr><td>trem</td><td>tremolo LFO</td></tr>
-  <tr><td>vibe</td><td>vibrato LFO</td></tr>
-</table>
-
-<h3>emil·in — synthèse modulaire west coast</h3>
-<table>
-  <tr><th>knob</th><th>effet dans emil·in</th></tr>
-  <tr><td>body (harm)</td><td>HARMONICS de Plaits — richesse spectrale de l'oscillateur</td></tr>
-  <tr><td>air (timb)</td><td>TIMBRE de Plaits — couleur du timbre selon le modèle</td></tr>
-  <tr><td>move (morph)</td><td>MORPH de Plaits — transformation continue du timbre</td></tr>
-  <tr><td>space</td><td>reverb wet</td></tr>
-  <tr><td>fm</td><td>index FM externe — modulation du second oscillateur</td></tr>
-  <tr><td>cut</td><td>strike du voile (LPG) — ouverture dynamique du low-pass gate</td></tr>
-  <tr><td>fold</td><td>wavefolder — saturation west coast</td></tr>
-  <tr><td>worn</td><td>drive de sortie</td></tr>
-  <tr><td>trem</td><td>—</td></tr>
-  <tr><td>vibe</td><td>—</td></tr>
-</table>
+<div class="quote">Patine a été fait avec de la curiosité, du temps, une oreille, et une conversation prolongée avec une intelligence artificielle. Le résultat est imparfait, inachevé, et vivant. Comme tout instrument qui mérite son nom.</div>
 
 </div></details>
 
 <details id="ms-instruments"><summary>les instruments des presets — histoire & contexte</summary><div class="detail-body">
 
-<p>Les presets de Patine évoquent des instruments réels. Ce chapitre retrace leur histoire, leur mécanique, et les musiciens qui les ont rendus iconiques.</p>
+<h2>le Rhodes — Fender Rhodes Stage Piano</h2>
+<p>Harold Rhodes développe son piano électrique pendant la Seconde Guerre mondiale pour la rééducation des soldats blessés. Le son Rhodes vient de tines métalliques frappées par des marteaux en feutre, captées par des micros électromagnétiques. La non-linéarité de la captation crée les harmoniques caractéristiques — les "clochettes" à l'attaque, la chaleur dans le médium. Bill Evans, Herbie Hancock, Joe Zawinul ont fait du Rhodes l'instrument du jazz fusion des années 70.</p>
 
-<h2>les épianos électromécaniques — Rhodes & Wurlitzer</h2>
+<h2>le DX7 — Yamaha DX7</h2>
+<p>1983. Yamaha commercialise le DX7, premier synthétiseur FM digital grand public. La synthèse FM (Frequency Modulation) avait été théorisée par John Chowning à Stanford dans les années 60 — un oscillateur modulant la fréquence d'un autre crée des timbres impossibles en synthèse soustractive. Le DX7 équipe des dizaines de milliers de studios. Son son définit une décennie entière. Le preset "E.Piano 1" est peut-être le son le plus enregistré des années 80.</p>
 
-<p>L'épiano électromécanique naît dans les années 40 de la nécessité pratique : comment construire un piano portable qui sonne bien ? Harold Rhodes, pianiste blessé pendant la guerre, commence par fabriquer des instruments avec des tubes d'avion récupérés pour enseigner la musique aux soldats hospitalisés. Il mettra vingt ans à affiner son instrument avant que CBS ne le commercialise à grande échelle sous le nom Fender Rhodes (1965).</p>
+<h2>le D-50 — Roland D-50</h2>
+<p>1987. Roland répond au DX7 avec la synthèse LA (Linear Arithmetic) — des échantillons d'attaque combinés à une synthèse numérique pour le sustain. La fantasia de Patine s'inspire du preset "Fantasy Tone" du D-50, qui a marqué la production des années 80-90. Jean-Michel Jarre, Enya, Vangelis ont utilisé ces textures nacrées et éthérées.</p>
 
-<p>Le mécanisme est élégant : un marteau en feutre frappe une tige métallique (tine) fixée sur une barre d'accord. La tine vibre devant un pick-up magnétique qui capture les variations du champ électromagnétique — exactement comme une guitare électrique, mais avec une tige de métal au lieu d'une corde. La beauté du son Rhodes tient à la non-linéarité de ce couplage : frapper fort donne une attaque percussive métallique et légèrement dissonante qui se stabilise ensuite sur un son doux et rond. Cette transformation dynamique est impossible à reproduire exactement par synthèse — Patine s'en approche par la décroissance harmonique indépendante par partiel.</p>
+<h2>l'orgue Hammond + Leslie</h2>
+<p>Laurens Hammond brevète son orgue électromécanique en 1934. Le son Hammond vient des tonewheels — des disques métalliques dentelés qui tournent devant des capteurs électromagnétiques. Le Leslie (inventé par Don Leslie dans les années 40) est un caisson rotatif avec haut-parleur tournant — l'effet Doppler de la rotation crée le vibrato/chorus caractéristique. La combinaison Hammond + Leslie est l'une des plus expressives de tout le vocabulaire musical électronique.</p>
 
-<div class="quote">Le Rhodes a un son qui ne vieillit pas. Herbie Hancock sur Head Hunters (1973), Stevie Wonder sur Songs in the Key of Life (1976), Chick Corea sur Return to Forever, Bill Evans sur ses derniers albums — chacun tire quelque chose de différent du même instrument. C'est la définition d'un grand instrument.</div>
+</div></details>
 
-<p>Le <span class="em">Wurlitzer</span> fonctionne différemment : des lames en acier vibrent devant des pick-ups capacitifs (condensateurs) plutôt que magnétiques. Le son est plus nasal, plus "reedy", avec une attaque plus franche et un sustain plus court. Les lames en acier sont moins souples que les tines du Rhodes — le Wurlitzer sonne plus tendu, plus agressif. Ray Charles en fait un usage fondateur dans les années 50. Plus tard, Supertramp (Roger Hodgson sur The Logical Song), Joe Zawinul, Steely Dan. Le Wurlitzer est le Rhodes de ceux qui veulent mordre plutôt que caresser.</p>
-
-<h2>le DX7 — la synthèse FM en grand public</h2>
-
-<p>Le Yamaha DX7 (1983) est l'instrument qui a défini le son des années 80 plus que tout autre. Ses six opérateurs FM, 32 algorithmes de connexion et 128 presets en mémoire arrivent au moment où les studios cherchent à remplacer les orchestres coûteux. Son piano électrique FM — E.PIANO 1 — brillant, métallique, légèrement froid, devient la bande sonore d'une décennie. On l'entend sur A-ha, Whitney Houston, Phil Collins, Sade. Ses presets de cuivres et de vibraphone sont tout aussi caractéristiques.</p>
-
-<p>Le DX7 a une réputation d'instrument difficile à programmer — ses algorithmes FM sont contre-intuitifs, et la plupart des musiciens des années 80 n'ont jamais modifié les presets d'usine. Cette passivité face à l'instrument est elle-même révélatrice d'une époque où la technologie avançait plus vite que la compréhension musicale.</p>
-
-<h2>le Roland D-50 — l'hybride qui a tout changé</h2>
-
-<p>Le Roland D-50 (1987) invente la synthèse <span class="em">LA (Linear Arithmetic)</span> — une combinaison d'échantillons PCM courts (pour les attaques) et de synthèse additive (pour les tenues). L'idée est géniale dans sa simplicité : les attaques des instruments acoustiques sont ce qui les rend reconnaissables, mais elles sont aussi ce qui est le plus difficile à synthétiser. Pourquoi ne pas les sampler directement et synthétiser uniquement la tenue ?</p>
-
-<p><span class="em">Fantasia</span> (preset 11-1 du D-50) est peut-être le plus célèbre de tous les presets de synthétiseur jamais créés. Son secret : une attaque par échantillon PCM d'un orchestre en pizzicato, suivie d'une tenue par synthèse additive pure et éthérée. Le contraste est saisissant — organique à l'attaque, irréel dans la tenue. C'est l'essence de la philosophie LA, et c'est ce que le preset fantasia de Patine tente de capturer. Mais aussi Digital Native Dance, Pizzagogo, Soundtrack — des presets qui ont marqué la production de la fin des années 80. Jean-Michel Jarre, Enya, Peter Gabriel, Depeche Mode.</p>
-
-<h2>le piano à queue — de Steinway à la salle de concert</h2>
-
-<p>Le piano moderne à queue est le résultat de deux siècles d'évolution mécanique. Bartolomeo Cristofori invente le "gravicembalo col piano e forte" vers 1700 — un clavecin qui peut jouer doux et fort selon la pression exercée sur les touches. Le mécanisme à marteaux qu'il conçoit est d'une sophistication remarquable et reste fondamentalement le même aujourd'hui.</p>
-
-<p>La firme Steinway & Sons, fondée à New York en 1853, va établir les standards du piano de concert. Leurs innovations — le cadre en acier fondu, la table d'harmonie en épicéa sélectionné, la corde croisée — définissent le son du piano classique occidental. Un Steinway concert grand (modèle D, 274cm) vibre encore plusieurs secondes après que la note est jouée, la table d'harmonie amplifiant chaque harmonique différemment selon sa position.</p>
-
-<p>Les presets piano de Patine évoquent différents caractères de cet instrument : le concert propre et ouvert, l'upright chaleureux, le felt étouffé par des tampons de feutre sur les marteaux (le "felt piano" popularisé par Nils Frahm sur Felt, 2011), le honky tonk du vieux piano de bar désaccordé. Chaque caractère est une relation différente entre l'instrument et le temps — entre ce qu'il était et ce qu'il est devenu.</p>
-
-<h2>l'orgue Hammond — le rotor et le gospel</h2>
-
-<p>Laurens Hammond fabrique son premier orgue électromécanique en 1935. Le principe des roues phoniques (tonewheels) — des disques dentés tournant devant des pick-ups magnétiques — génère des sinusoïdes pures à des fréquences précises. Neuf drawbars (registres) par manuel permettent de mélanger ces sinusoïdes dans n'importe quelle proportion. Le timbre résultant est entièrement déterminé par cette addition — c'est de la synthèse additive pure, avant que le terme existe.</p>
-
-<p>Le son de l'orgue Hammond nu est propre, presque stérile. Ce qui lui donne son caractère, c'est la distorsion de préamplificateur (overdriven preamp) et surtout le <span class="em">Leslie</span> — un haut-parleur dans un cabinet en bois avec un réflecteur rotatif. L'effet Doppler du rotor crée un vibrato+chorus qui ne ressemble à rien d'autre. À vitesse lente (chorale, ~40rpm) c'est enveloppant et doux. À vitesse rapide (tremolo, ~400rpm) c'est électrique et urgent. La transition entre les deux — pendant laquelle le rotor accélère progressivement — est l'un des sons les plus expressifs de toute la musique amplifiée.</p>
-
-<p>Le Hammond est indissociable du gospel afro-américain, du blues (Jimmy Smith, Jack McDuff), du rock progressif (Keith Emerson, Jon Lord de Deep Purple), du jazz (Shirley Scott, Larry Young, Barbara Dennerlein). Son rôle dans <em>A Whiter Shade of Pale</em> de Procol Harum (1967) — une ligne de basse en ré bémol basée sur une cantate de Bach — est peut-être la plus belle alliance entre musique classique et rock jamais enregistrée.</p>
-
-<h2>la corde de Karplus-Strong — la physique dans le numérique</h2>
-
-<p>L'algorithme Karplus-Strong n'évoque pas un instrument commercial spécifique — il évoque une classe d'instruments : tout ce qui vibre par une corde pincée ou frappée. Guitare acoustique, sitar, koto, shamisen, clavecin, cithare.</p>
-
-<p>Ce qui unit ces instruments, c'est la physique de la corde tendue : l'excitation initiale (le pincement ou la frappe) détermine tout le caractère du son. La corde résonne ensuite selon ses propres lois — harmoniques, inharmonicité, décroissance différentielle par fréquence. Le musicien ne peut pas modifier le son après l'attaque. Cette contrainte est musicalement fertile : toute l'expression passe par le geste initial.</p>
-
-<p>Les presets corde de Patine explorent ce territoire — de la corde nue brillante au pizzicato sec, de la cloche inharmonique à l'archet simulé (attaque lente qui imite l'archet d'un violoncelle). Le preset koto, avec son décroissance longue et soyeuse, évoque les instruments à cordes traditionnels japonais — des instruments dont la résonance prolongée crée un espace temporel différent de la musique occidentale.</p>
-
-<h2>les nappes — le pad de synthétiseur</h2>
-
-<p>Le "pad" — ce son de synthétiseur large, lent, atmosphérique — est une invention des années 70 qui devient omniprésente dans les années 80. Son ancêtre le plus direct est peut-être le mellotron (1963) — un clavier qui déclenche des bandes magnétiques préenregistrées d'instruments réels (cordes, chœurs, flûtes). Les Beatles l'utilisent sur Strawberry Fields Forever (1967). Le son de cordes du mellotron — légèrement instable, légèrement saturé, légèrement trop lent — définit une certaine mélancolie sonore qui n'appartient qu'à cet instrument.</p>
-
-<p>Le Juno-60 et le Juno-106 de Roland (1982-1984) démocratisent le pad de synthétiseur. Leur chorus BBD (Bucket Brigade Device) transforme un oscillateur sawtooth simple en quelque chose de large et de vivant. C'est ce mécanisme que pad·in de Patine reproduit.</p>
-
-<p>Les presets nappe de Patine — aurora, velvet, drift, silk, tide — évoquent des états plus que des sons. Une nappe n'est pas un instrument qu'on joue : c'est un espace qu'on habite. Elle définit le contexte harmonique dans lequel le reste de la musique se déploie. Brian Eno a construit toute une esthétique autour de cette idée — la musique d'ambiance comme environnement plutôt que comme objet d'attention.</p>
-
-<h2>les percussions synthétiques</h2>
-
-<p>Les presets percussifs — industrial, bell, bell, wood, glass, metal — explorent la synthèse de percussions sans référence à un instrument acoustique spécifique. C'est la tradition de la <span class="em">musique concrète</span> appliquée à la synthèse : utiliser la technologie électronique pour créer des sons qui n'existent pas dans le monde acoustique, ou qui existent dans des espaces impossibles (une cloche qui dure dix secondes, un bloc de bois qui résonne comme un gong).</p>
-
-<p>La TR-808 de Roland (1980) est le modèle de cette approche. Sa grosse caisse — un oscillateur sinus avec sweep rapide de pitch et click d'impact — ne ressemble à aucune vraie grosse caisse. Mais elle définit le rythme du hip-hop, de la house, de la techno. Afrika Bambaataa sur Planet Rock (1982), le hip-hop de Marley Marl, la house de Larry Heard, la techno de Juan Atkins — autant de musiques construites sur un son que les fabricants de la TR-808 avaient créé comme ersatz temporaire en attendant des vrais samples.</p>
-
-<p>C'est peut-être la leçon la plus importante des percussions synthétiques : un son "faux" qui sonne bien musicalement finit par avoir plus de valeur qu'un son "vrai" qui sonne moins bien. La vérité acoustique n'est pas la même chose que la vérité musicale.</p>
-
-</div></details><summary>emil·in & la baie — guide complet</summary><div class="detail-body">
+<details id="ms-emilin-guide"><summary>emil·in & la baie — guide complet</summary><div class="detail-body">
 
 <h2>hommage à émilie gillet</h2>
+<p>Emil·in est dédié à Émilie Gillet, fondatrice de Mutable Instruments, connue sous le pseudonyme Pichenettes. Mutable Instruments a produit de 2009 à 2022 certains des modules eurorack les plus influents et les plus aimés — Braids, Rings, Clouds, Plaits, Marbles, Tides, Stages, Maths. Chaque module était open source (code et hardware), documenté avec soin, conçu avec une vision musicale claire.</p>
+<p>Clouds (2014) mérite une mention particulière. Module de traitement granulaire capable de transformer n'importe quel son en nuage de grains — reverse, pitch shift, scatter, freeze. Il est devenu culte au point d'être en rupture permanente. Mutable Instruments a fini par publier le code source intégral et encourager les clones.</p>
+<p>Emil·in n'est pas un portage de ses modules — c'est une réinterprétation libre qui capture l'esprit : instruments qui sonnent bien, paramètres qui ont du sens, open source, accessible.</p>
 
-<p>Emil·in est dédié à Émilie Gillet, fondatrice de Mutable Instruments, connue sous le pseudonyme <span class="em">pichenettes</span>. Ses modules — Braids (2012), Clouds (2014), Rings (2015), Plaits (2018) — ont redéfini ce qu'un module Eurorack peut être. Ce qui distingue son travail : une rigueur théorique absolue en DSP combinée à une sensibilité musicale profonde. Elle a publié tout son code en open source — un geste politique autant que philosophique, rare dans une industrie qui protège jalousement ses algorithmes.</p>
-
-<p>Clouds (2014) mérite une mention particulière. Module de traitement granulaire capable de capturer le signal entrant et de le rejouer en grains avec contrôle total sur la position, la taille, la densité et la texture. Il a été tellement populaire que Mutable Instruments a fini par le discontinuer en 2017 — Émilie Gillet, épuisée par la demande et par le fait que Clouds définissait trop l'identité de la marque. Puis elle a rendu tout le code open source, et elle a arrêté de fabriquer des modules.</p>
-
-<p>Emil·in n'est pas un portage de ses modules — c'est une réinterprétation libre qui capture l'<em>esprit</em> de son approche : des algorithmes multiples sous une interface unifiée, des paramètres nommés de façon cohérente, une attention particulière à la musicalité de chaque engine.</p>
-
-<h2>les 16 engines</h2>
-
+<h2>les 16 engines de plaits</h2>
 <table>
-  <tr><th>engine</th><th>mécanisme</th><th>harmonics (body)</th><th>timbre (air)</th><th>morph (move)</th></tr>
-  <tr><td>va</td><td>virtual analog dual osc</td><td>détune entre osc1/osc2</td><td>niveau osc2</td><td>forme d'onde saw→sq→tri</td></tr>
-  <tr><td>ws</td><td>waveshaping harmonique</td><td>fréquence second osc</td><td>profondeur wavefolder 1</td><td>profondeur wavefolder 2</td></tr>
-  <tr><td>fm2</td><td>FM 2 opérateurs</td><td>ratio mod/porteur</td><td>index FM</td><td>décroissance index</td></tr>
-  <tr><td>grain</td><td>cloud de grains sinus</td><td>densité (3→15)</td><td>spread harmonique</td><td>jitter de pitch</td></tr>
-  <tr><td>add</td><td>8 partiels additifs</td><td>profil spectral</td><td>inharmonicité</td><td>transition spectrale</td></tr>
-  <tr><td>wt</td><td>wavetable 4 formes</td><td>position dans table</td><td>harmoniques additionnels</td><td>détune entre tables</td></tr>
-  <tr><td>chord</td><td>accords polyphoniques</td><td>type d'accord (8)</td><td>forme d'onde</td><td>spread d'octave</td></tr>
-  <tr><td>swarm</td><td>cluster oscillateurs</td><td>nombre (4→16)</td><td>dérive de pitch</td><td>largeur cluster</td></tr>
-  <tr><td>noise</td><td>bruit filtré résonant</td><td>fréquence BP</td><td>résonance Q</td><td>couleur blanc→rose</td></tr>
-  <tr><td>particle</td><td>granulaire de bruit</td><td>durée des grains</td><td>densité</td><td>spread fréquentiel</td></tr>
-  <tr><td>estring</td><td>karplus-strong</td><td>amortissement g</td><td>brillance excitation</td><td>coefficient allpass</td></tr>
-  <tr><td>modal</td><td>résonateurs modaux</td><td>profil cloche/barre/plaque</td><td>Q des résonateurs</td><td>vitesse décroissance</td></tr>
-  <tr><td>bd</td><td>grosse caisse synthétique</td><td>fréquence fondamentale</td><td>sweep de pitch</td><td>durée decay</td></tr>
-  <tr><td>sd</td><td>caisse claire synthétique</td><td>fréquence du corps</td><td>brillance bruit</td><td>durée corps+friture</td></tr>
-  <tr><td>hh</td><td>charleston 6 oscs carrés</td><td>fréquence de base</td><td>coupure HP</td><td>durée decay</td></tr>
+  <tr><th>engine</th><th>mécanisme</th><th>harm (body)</th><th>timb (air)</th><th>morph (move)</th></tr>
+  <tr><td>va</td><td>virtual analog dual osc</td><td>détune osc1/osc2</td><td>niveau harmoniques</td><td>forme d'onde</td></tr>
+  <tr><td>ws</td><td>waveshaping harmonique</td><td>fréq second osc</td><td>profondeur fold</td><td>asymétrie</td></tr>
+  <tr><td>fm</td><td>FM 2 opérateurs</td><td>ratio mod/porteur</td><td>index FM</td><td>détune mod</td></tr>
+  <tr><td>gr</td><td>granulaire sinus</td><td>densité grains</td><td>spread harmonique</td><td>répartition</td></tr>
+  <tr><td>ad</td><td>8 partiels additifs</td><td>profil spectral</td><td>inharmonicité</td><td>morph spectral</td></tr>
+  <tr><td>wt</td><td>wavetable 4 formes</td><td>position table</td><td>harmoniques additifs</td><td>morphing</td></tr>
+  <tr><td>ch</td><td>accords polyphoniques</td><td>type d'accord</td><td>forme d'onde</td><td>inversion</td></tr>
+  <tr><td>sp</td><td>speech formants LPC</td><td>voyelle</td><td>nasalité</td><td>genre vocal</td></tr>
+  <tr><td>sw</td><td>swarm désaccordé</td><td>nombre oscs</td><td>dérive de pitch</td><td>chaos</td></tr>
+  <tr><td>no</td><td>noise filtré résonant</td><td>fréquence BP</td><td>résonance Q</td><td>couleur</td></tr>
+  <tr><td>pt</td><td>granulaire de bruit</td><td>durée grains</td><td>densité</td><td>texture</td></tr>
+  <tr><td>st</td><td>string karplus-strong</td><td>amortissement</td><td>brillance excitation</td><td>inharmonicité</td></tr>
+  <tr><td>md</td><td>résonateurs modaux</td><td>profil cloche/barre</td><td>Q résonateurs</td><td>couplage</td></tr>
+  <tr><td>bd</td><td>grosse caisse synthétique</td><td>fréquence fond.</td><td>sweep FM</td><td>click</td></tr>
+  <tr><td>sd</td><td>caisse claire synthétique</td><td>fréquence corps</td><td>brillance noise</td><td>snap</td></tr>
+  <tr><td>hh</td><td>hi-hat 6 oscs carrés</td><td>fréquence base</td><td>coupure HP</td><td>métal</td></tr>
 </table>
 
-<h2>bridge bidirectionnel — baie ↔ contrôles globaux</h2>
+<h2>smp — le sampling créatif</h2>
+<p>Le 17ème engine. Dropper un sample audio dans la zone <span class="kw">smp</span> du module plaits l'intègre dans la baie comme n'importe quel engine de synthèse. Le sample est transposé chromatiquement à partir de la note de référence sélectionnée. Tout le réseau de modulation s'applique : <span class="kw">env→cutoff</span> pour un filtre sweep, <span class="kw">l1→harm</span> pour faire évoluer la brillance, <span class="kw">vel→vca</span> pour la dynamique. Trois zones (grave ×0.5, médium ×1, aigu ×2) limitent les artefacts de transposition.</p>
 
-<p>Les sliders du cœur et les knobs globaux sont synchronisés dans les deux sens. La correspondance exacte :</p>
-
-<table>
-  <tr><th>knob global</th><th>slider baie</th><th>paramètre Plaits</th></tr>
-  <tr><td>body</td><td>harm</td><td>HARMONICS</td></tr>
-  <tr><td>air</td><td>timb</td><td>TIMBRE</td></tr>
-  <tr><td>move</td><td>morph</td><td>MORPH</td></tr>
-  <tr><td>fm-ring</td><td>fm</td><td>index FM externe</td></tr>
-  <tr><td>cut</td><td>voile strike</td><td>ouverture du LPG</td></tr>
-  <tr><td>fold</td><td>sh-fold</td><td>profondeur wavefolder</td></tr>
-  <tr><td>worn</td><td>sh-drive</td><td>drive de sortie</td></tr>
-  <tr><td>space</td><td>—</td><td>reverb wet global</td></tr>
-</table>
-
-<p class="note">Le knob <span class="kw">lpg</span> contrôle l'ouverture du voile (LPG) — pas le filtre échelle. Le cutoff de l'échelle est accessible uniquement depuis la baie. Cette séparation est délibérée : voile et échelle sont deux processeurs distincts avec des rôles différents — le voile gère la dynamique organique, l'échelle gère le timbre harmonique.</p>
-
-<h2>la matrice réseau 10×10 — guide d'utilisation</h2>
-
-<p>Cent points de patch organisés en grille : les sources de modulation en lignes (gauche), les destinations en colonnes (haut). Chaque point est un atténuverter — une valeur entre −1 et +1. Clic = cycle off → +50% → −50% → off. Drag vertical = ajustement précis. La valeur s'affiche dans le dot, vert pour positif, rouge pour négatif. Bouton reset = tout à zéro.</p>
-
-<p><strong>Sources (10) :</strong></p>
-<ul>
-  <li><span class="kw">p1, p2</span> — canaux pente. En mode loop, ce sont des LFOs aux formes organiques asymétriques (rise/fall/curve). En mode one-shot, des enveloppes complexes.</li>
-  <li><span class="kw">l1, l2, l3, l4</span> — quatre LFOs permanents de la marée. Formes sin/tri/sq. En mode quad, phases décalées de 90°.</li>
-  <li><span class="kw">env</span> — l'enveloppe ADSR globale de la note. Suit exactement la courbe attack/decay/sustain/release configurée.</li>
-  <li><span class="kw">rnd</span> — random sample & hold. Une valeur aléatoire nouvelle à chaque note, tenue constante pendant toute la durée.</li>
-  <li><span class="kw">vel</span> — vélocité de la note (0→1). Signal fixe par note — fort = 1, pianissimo = proche de 0. Très musical : vel→harm donne un brightness tracking naturel.</li>
-  <li><span class="kw">note</span> — hauteur MIDI normalisée (0→1 sur 88 touches). Signal fixe par note. note→cutoff = key follow classique.</li>
-</ul>
-
-<p><strong>Destinations (10) — dans l'ordre des boutons :</strong></p>
-<ul>
-  <li><span class="kw">pitch</span> — fréquence fondamentale. Vibrato si LFO, pitch envelope si env.</li>
-  <li><span class="kw">cutoff</span> — fréquence de coupure de l'échelle. La modulation la plus musicale.</li>
-  <li><span class="kw">réso</span> — résonance Q de l'échelle. Résonance pulsante avec un LFO.</li>
-  <li><span class="kw">vca</span> — amplitude finale (après le voile). Tremolo si LFO, shaping si env. Distinct du couplage LPG interne.</li>
-  <li><span class="kw">harm</span> — HARMONICS Plaits. Richesse spectrale de l'engine.</li>
-  <li><span class="kw">timb</span> — TIMBRE Plaits. Caractère timbral de l'engine.</li>
-  <li><span class="kw">morph</span> — MORPH Plaits. Fait glisser l'engine entre ses états.</li>
-  <li><span class="kw">fm</span> — index FM externe. Timbres évolutifs très caractéristiques avec un LFO.</li>
-  <li><span class="kw">space</span> — reverb send global. <span class="kw">l1→space</span> crée une réverbe pulsante, <span class="kw">env→space</span> ouvre l'espace à l'attaque, <span class="kw">vel→space</span> rend la profondeur sensible à la vélocité.</li>
-  <li><span class="kw">fold</span> — profondeur du wavefolder. Timbre qui se transforme rythmiquement.</li>
-</ul>
-
-<div class="quote">La matrice réseau est l'endroit où Emil·in devient imprévisible. env→harm donne un brightness qui suit l'enveloppe — brillant à l'attaque, sombre au sustain. vel→cutoff et vel→harm créent un instrument qui s'ouvre spectralement à forte vélocité, comme un piano acoustique. note→cutoff est le key follow classique. l1→lpg pulse le voile avec le LFO — tremolo timbral+dynamique couplé, le geste west coast par excellence. Ces connexions ne se programment pas, elles se découvrent.</div>
-
-<h2>les couleurs du voile</h2>
-
-<ul>
-  <li><span class="kw">clean</span> — réponse linéaire, prévisible. Bon pour les sons synthétiques précis.</li>
-  <li><span class="kw">vctr</span> (vactrol) — fermeture lente, mémoire du signal précédent. Caractère organique inimitable des sons de percussion modale.</li>
-  <li><span class="kw">buch</span> (Buchla 292) — ouverture instantanée, décroissance exponentielle. Très vivant, comme une cloche ou un tam-tam.</li>
-  <li><span class="kw">warm</span> — saturation douce à l'ouverture. Harmoniques ajoutés pendant l'attaque.</li>
-  <li><span class="kw">gate</span> — porte dure. Q minimal, fermeture quasi-instantanée (1ms). Attaque percussive tranchante, sans queue.</li>
-  <li><span class="kw">sprg</span> — ressort. Q élevé avec légère résonance à la fermeture — rebond analogique entre la cloche et le vactrol.</li>
-</ul>
+<h2>le module échelle — Moog Ladder</h2>
+<p>Le filtre de la baie est un Moog Ladder 4 pôles — l'un des filtres les plus influents de l'histoire de la synthèse. Robert Moog le brevète en 1965. Sa non-linéarité dans le feedback crée une saturation thermique caractéristique impossible à reproduire fidèlement avec un filtre numérique standard. Dans Patine, il tourne comme AudioWorklet — un processeur DSP dédié sample-accurate. Trois modes : <span class="kw">moog</span> (standard), <span class="kw">acid</span> (résonance haute, auto-oscillante), <span class="kw">lpg</span> (amplitude et fréquence couplées).</p>
 
 </div></details>
 
 <details id="ms-controls"><summary>guide des contrôles</summary><div class="detail-body">
 
-<h2>les knobs</h2>
-
-<p>Tous les knobs fonctionnent par glissement vertical — monter augmente, descendre diminue. Cette convention permet une précision supérieure au clic-glisser rotatif et fonctionne aussi bien à la souris qu'au trackpad.</p>
+<h2>les knobs globaux</h2>
+<p>Les huit knobs de la rangée de contrôles sont communs à tous les voicings. Leur sémantique change selon le voicing actif — les labels sous chaque knob s'adaptent automatiquement. Pour pat·in : body/air/move/echelle/fold/worn/space/fm. Pour emil·in : harm/timb/morph/echelle/fold/worn/space/fm.</p>
 
 <table>
-  <tr><th>knob</th><th>paramètre</th><th>effet général</th></tr>
-  <tr><td>body</td><td>corps / harmonics</td><td>richesse grave, densité harmonique</td></tr>
-  <tr><td>air</td><td>air / timbre</td><td>présence médium, brillance</td></tr>
-  <tr><td>move</td><td>mouvement / morph</td><td>transformation, vibrato, modulation</td></tr>
-  <tr><td>space</td><td>espace</td><td>réverbération interne, longueur</td></tr>
-  <tr><td>fm</td><td>modulation FM (bipolaire)</td><td>richesse harmonique, caractère métal</td></tr>
-  <tr><td>cut</td><td>filtre Moog 4 pôles (pat·in) — cutoff + résonance</td><td>échelle (emFilter) dans emil·in</td></tr>
-  <tr><td>lpg</td><td>low-pass gate / ouverture voile (emilin)</td><td>brillance globale, ouverture dynamique</td></tr>
-  <tr><td>fold</td><td>wavefold</td><td>saturation additive, harmoniques pairs</td></tr>
-  <tr><td>worn</td><td>usure / âge</td><td>instabilité, saturation, vieillissement</td></tr>
-  <tr><td>trem</td><td>tremolo (LFO amplitude)</td><td>modulation d'amplitude cyclique — de subtil à prononcé</td></tr>
-  <tr><td>vibe</td><td>vibrato (LFO pitch)</td><td>modulation de hauteur cyclique — expressivité, instabilité</td></tr>
+  <tr><th>knob pat·in</th><th>knob emil·in</th><th>rôle général</th></tr>
+  <tr><td>body</td><td>harm</td><td>richesse harmonique, corps du son</td></tr>
+  <tr><td>air</td><td>timb</td><td>brillance, caractère timbral</td></tr>
+  <tr><td>move</td><td>morph</td><td>mouvement, évolution du timbre</td></tr>
+  <tr><td>echelle</td><td>echelle</td><td>cutoff Moog Ladder</td></tr>
+  <tr><td>fold</td><td>fold</td><td>wavefolder — ajoute des harmoniques</td></tr>
+  <tr><td>worn</td><td>worn</td><td>usure — saturation + résonance</td></tr>
+  <tr><td>space</td><td>space</td><td>reverb wet global</td></tr>
+  <tr><td>fm (ring)</td><td>fm (ring)</td><td>index FM / modulation de fréquence</td></tr>
 </table>
 
-<h2>le bouton panic (■)</h2>
+<h2>l'enveloppe ADSR</h2>
+<p><span class="kw">A</span>ttack — durée de la montée depuis 0 vers le peak. Court = percussif, long = fondu. <span class="kw">D</span>ecay — durée de la descente du peak vers le sustain. <span class="kw">S</span>ustain — niveau maintenu pendant la note. <span class="kw">R</span>elease — durée de la disparition après le relâchement de la touche.</p>
 
-<p>Le <span class="kw">■</span> dans la barre de status est le kill switch universel de l'instrument. Il coupe immédiatement tous les sons actifs — oscillateurs, buffers en boucle, bruit de cassette, notes tenues. Le moteur audio repart immédiatement, propre et silencieux. Dans les systèmes analogiques physiques, le panic button est une tradition de survie sur scène : quand un drone se bloque, quand un feedback part en vrille, quand un son reste suspendu après la fin du morceau.</p>
+<h2>trem et vibe</h2>
+<p><span class="kw">trem</span> — trémolo, modulation d'amplitude. Simule le trémolo électronique des amplificateurs vintage et des épianos. <span class="kw">vibe</span> — vibrato, modulation de pitch. Pour les orgues, simule le rotor Leslie.</p>
 
-<h2>les enveloppes ADSR</h2>
-
-<ul>
-  <li><span class="kw">A</span> — attack. De 0 (instantané) à plusieurs secondes.</li>
-  <li><span class="kw">D</span> — decay. Temps de descente du pic vers le sustain.</li>
-  <li><span class="kw">S</span> — sustain. Niveau maintenu pendant que la touche est tenue. S=0 : percussif. S=1 : orgue.</li>
-  <li><span class="kw">R</span> — release. Temps de descente après relâchement.</li>
-</ul>
-
-<div class="note">Recettes : A=0, D=0.3, S=0, R=0.4 → percussif. A=0, D=0, S=1, R=0.3 → orgue. A=0.5, D=0, S=0.7, R=1 → nappe. A=0.8, D=0.5, S=0.3, R=2 → pad ambient.</div>
+<h2>le master volume</h2>
+<p>Le grand knob central contrôle le volume de sortie global. Double-clic remet à 70%.</p>
 
 </div></details>
 
-<details id="ms-fx"><summary>guide des effets (FX)</summary><div class="detail-body">
+<details id="ms-effects"><summary>guide des effets (FX)</summary><div class="detail-body">
 
-<p>Les FX sont en insertion série. Plusieurs effets actifs simultanément s'accumulent. Le knob <span class="kw">morph FX</span> glisse tous les effets actifs de leur configuration subtile (0) vers leur configuration profonde (1).</p>
+<h2>les effets de caractère</h2>
+<p>Les effets de Patine ne sont pas des outils neutres — chacun a une personnalité. Ils sont conçus pour colorer et transformer, pas seulement pour traiter. Plusieurs peuvent être actifs simultanément.</p>
 
 <table>
-  <tr><th>effet</th><th>mécanisme</th><th>morph 0→1</th></tr>
-  <tr><td>voodoo</td><td>fuzz germanium asymétrique + allpass modulé (univibe)</td><td>drive+, vitesse+, coupure−</td></tr>
-  <tr><td>velvet</td><td>redresseur → LP 400Hz sous-octave + saturation douce</td><td>sous-octave+, coupure LP−</td></tr>
-  <tr><td>california</td><td>deux delays 7/13ms + peaking 3.2kHz + compresseur</td><td>profondeur chorus+, présence+</td></tr>
-  <tr><td>tokyo</td><td>flanger BBD (6ms modulé, fb 45%) + double delay + highshelf 6kHz</td><td>vitesse flanger+, feedback+</td></tr>
-  <tr><td>shine</td><td>slapback 48ms + delay 380ms + room IR 400ms</td><td>feedback+, room wet+</td></tr>
-  <tr><td>bugs</td><td>ADT 18/31ms + varispeed LFO 0.08Hz + LP 9kHz</td><td>profondeur ADT+, varispeed+</td></tr>
-  <tr><td>twang</td><td>IR spring synthétisée (380/820/1240Hz) + peaking 1.2kHz</td><td>wet spring+, métal+</td></tr>
-  <tr><td>cassette</td><td>saturation bande + LP 7.8kHz + wow/flutter + bruit 18mV</td><td>wow+, flutter+, coupure LP−</td></tr>
-  <tr><td>pong</td><td>bitcrush 5-bit + ping-pong delay 250/375ms + panners ±1</td><td>feedback+, wet level+</td></tr>
-  <tr><td>brume</td><td>IR 2.5s + pitch shift circulaire +1 octave (shimmer)</td><td>shimmer+, reverb wet+</td></tr>
-  <tr><td>minuit</td><td>IR 10s décroissance lente + LP 600Hz sur wet</td><td>immersion+, ouverture filtre−</td></tr>
+  <tr><th>effet</th><th>caractère</th><th>morph contrôle</th></tr>
+  <tr><td>voodoo</td><td>fuzz asymétrique + univibe</td><td>drive + vitesse vibe</td></tr>
+  <tr><td>velvet</td><td>saturation douce + sub-octave</td><td>niveau sub</td></tr>
+  <tr><td>california</td><td>double chorus + compression</td><td>profondeur chorus</td></tr>
+  <tr><td>tokyo</td><td>flanger + ADT stéréo</td><td>vitesse flanger + feedback</td></tr>
+  <tr><td>shine</td><td>slab delay + room convolution</td><td>feedback + wetness</td></tr>
+  <tr><td>bugs</td><td>ADT varispeed + compression</td><td>profondeur + varispeed</td></tr>
+  <tr><td>twang</td><td>spring reverb convolution</td><td>wet + caractère métallique</td></tr>
+  <tr><td>cassette</td><td>saturation tape + wow flutter</td><td>wow + flutter + brillance</td></tr>
+  <tr><td>pong</td><td>bit crusher + ping-pong delay</td><td>feedback stéréo</td></tr>
+  <tr><td>brume</td><td>shimmer reverb + pitch delay</td><td>shimmer + wet</td></tr>
+  <tr><td>minuit</td><td>longue reverb sombre (10s)</td><td>wet + coupure</td></tr>
 </table>
 
-<h2>combinaisons remarquables</h2>
-<ul>
-  <li><span class="kw">tokyo + pong</span> — neon city stéréo.</li>
-  <li><span class="kw">bugs + twang</span> — studio vintage britannique années 60.</li>
-  <li><span class="kw">brume + minuit</span> — ambient maximal.</li>
-  <li><span class="kw">cassette + voodoo</span> — lo-fi psychédélique.</li>
-  <li><span class="kw">velvet + shine</span> — basse grasse avec queue.</li>
-</ul>
+<h2>le knob morph</h2>
+<p>Chaque effet expose ses paramètres les plus expressifs sous un seul knob <span class="kw">morph</span>. Pour cassette, morph module simultanément wow, flutter et brillance — une seule rotation change tout le caractère de la dégradation tape.</p>
+
+<h2>la reverb globale</h2>
+<p>Le knob <span class="kw">space</span> contrôle le send vers la reverb algorithmique globale — distincte des reverbs intégrées aux effets. Elle est toujours active en arrière-plan. Space→cutoff dans la matrice réseau crée des textures évolutives.</p>
 
 </div></details>
 
 <details id="ms-subway"><summary>guide de la subway</summary><div class="detail-body">
 
-<p>La subway est une fiction sonore dans un espace sonore réel. Un groupe de musiciens joue pendant que vous jouez — ils ne vous écoutent pas, ils ont leur propre vie musicale. Mais si vous accordez votre jeu au leur, un dialogue se crée.</p>
+<h2>qu'est-ce que la subway ?</h2>
+<p>La subway est un générateur de contexte musical ambiant. Elle simule les musiciens de rue du métro de New York — Mert (percussions), Jade (mélodies), Bob (basse). Ils jouent en temps réel, en s'adaptant au tempo et à la tonalité choisie. C'est un fond musical vivant, pas une boucle.</p>
 
-<p><span class="kw">Mert</span> — batteur blues. Grosse caisse sur 1 et 3, caisse claire sur 2 et 4, hi-hats en croches. Constant, ancré, légèrement automatique.</p>
-<p><span class="kw">Jade</span> — batteuse lofi. Brushes doux, pattern minimal, beaucoup de silence. Elle joue pour elle-même.</p>
-<p><span class="kw">Bob</span> — bassiste discret. Ligne simple root→quinte sur 8 mesures. Oscillateur sinus filtré, presque aucun harmonique. Il joue légèrement derrière le beat.</p>
-<p>Le slider <span class="kw">quai↔couloir</span> simule l'acoustique d'une station de métro — du son direct sur carreaux (quai sec) à la musique qui vous parvient de loin dans un tunnel (couloir réverbéré).</p>
+<h2>les musiciens</h2>
+<ul>
+  <li><span class="kw">mert</span> — percussionniste. Patterns rythmiques génératifs, fills aléatoires tous les 8 mesures. Répond au tempo de l'arpégiateur.</li>
+  <li><span class="kw">jade</span> — mélodiste. Phrases mélodiques dans la gamme de la tonalité choisie. Dynamique et ornements aléatoires.</li>
+  <li><span class="kw">bob</span> — bassiste. Ligne de basse walking dans la tonalité, suit les changements de root note.</li>
+  <li><span class="kw">mert+bob</span> et <span class="kw">jade+bob</span> — combinaisons.</li>
+</ul>
+
+<h2>les contrôles</h2>
+<p><span class="kw">quai ↔ couloir</span> — ambiance acoustique. Quai = révérb courte et sèche (espace ouvert), couloir = révérb longue et colorée (tunnel). <span class="kw">vol</span> — volume du groupe. <span class="kw">root</span> — note fondamentale de la tonalité (C2 à F#3).</p>
 
 </div></details>
 
 <details id="ms-arp"><summary>guide de l'arpégiateur</summary><div class="detail-body">
 
-<p>L'arpégiateur de Patine joue les notes de la séquence active à un tempo, une division et un swing définis. Ce qui le distingue des arpégiateurs simples : un swing par timer asymétrique réel (pas une grille quantisée décalée), le mode lock qui permet de construire des séquences en cours de jeu, et l'intégration avec le MIDI learn pour un contrôle expressif en performance.</p>
+<h2>l'arpégiateur</h2>
+<p>L'arpégiateur joue les notes maintenues en séquence selon un pattern rythmique. Il se synchronise avec la subway.</p>
 
-<h2>tempo et division</h2>
-
-<p>Le <span class="kw">BPM</span> contrôle la vitesse globale. Le tap tempo — cliquer plusieurs fois sur le bouton tap — synchronise le BPM sur un tempo joué à la main. La <span class="kw">division</span> détermine la subdivision rythmique : 1/4 (noires), 1/8 (croches), 1/16 (doubles croches), 1/8T (croches en triolets). Une même séquence jouée en 1/16 à 80 BPM sonne différemment qu'en 1/8 à 160 BPM, même si le résultat musical est identique.</p>
-
-<h2>le swing — de la grille au groove</h2>
-
-<p>Le swing musical est une asymétrie temporelle. Un swing de 50% est parfaitement régulier — chaque note est à égale distance de la suivante. Un swing de 66% place les notes sur les premier et troisième tiers de chaque temps — c'est le swing de triolets, la base rythmique du jazz. Un swing de 75-80% est le shuffle prononcé du blues et du rock'n'roll.</p>
-
-<p>Dans Patine, le swing fonctionne par asymétrie réelle du timer — les intervalles impairs sont physiquement plus longs que les intervalles pairs. Ce n'est pas un artefact de quantisation. La conséquence : le swing respire légèrement d'un temps à l'autre, comme un musicien humain qui n'est jamais parfaitement métronome. C'est précisément ce qui donne vie au groove.</p>
-
-<h2>les modes d'arpège</h2>
-
+<h2>les modes</h2>
 <ul>
-  <li><span class="kw">up</span> — de la note la plus grave à la plus aiguë. Le mode le plus classique.</li>
-  <li><span class="kw">dn</span> — de la plus aiguë à la plus grave.</li>
-  <li><span class="kw">u↓d</span> — aller-retour sans doublement aux extrémités. La note du haut et celle du bas ne sont jouées qu'une fois avant de repartir dans l'autre sens.</li>
-  <li><span class="kw">u↑d</span> — aller-retour avec doublement aux extrémités. La note extrême est jouée deux fois — une fois dans chaque sens.</li>
-  <li><span class="kw">rnd</span> — ordre aléatoire. Chaque note de la séquence est jouée une fois avant de recommencer dans un ordre différent. Pas de répétition consécutive de la même note.</li>
-  <li><span class="kw">as played</span> — dans l'ordre où les notes ont été ajoutées à la séquence. Permet de composer un motif mélodique précis plutôt que de laisser l'arpégiateur décider de l'ordre.</li>
+  <li><span class="kw">up</span> — du grave à l'aigu</li>
+  <li><span class="kw">dn</span> — de l'aigu au grave</li>
+  <li><span class="kw">up/dn</span> — aller-retour</li>
+  <li><span class="kw">rnd</span> — ordre aléatoire à chaque cycle</li>
+  <li><span class="kw">chord</span> — toutes les notes simultanément</li>
 </ul>
 
-<h2>le lock — la séquence vivante</h2>
+<h2>tempo et gate</h2>
+<p><span class="kw">bpm</span> — tempo en battements par minute. <span class="kw">div</span> — division rythmique (1/4, 1/8, 1/16, 1/32). <span class="kw">gate</span> — durée de chaque note (0→100% du temps disponible). Gate court = staccato, gate long = legato.</p>
 
-<p>Le lock est la fonctionnalité la plus créative de l'arpégiateur. Avec lock activé, les notes restent dans la séquence même après qu'on les a relâchées. L'arpégiateur continue de jouer la séquence lockée pendant qu'on a les deux mains libres pour autre chose — changer un preset, ajuster un knob, activer un effet.</p>
-
-<p>Cliquer sur une note déjà présente dans la séquence la retire — c'est un toggle. On peut ainsi transformer la séquence note par note en cours de jeu, créant une évolution mélodique progressive. Double-clic sur le bouton lock efface toute la séquence et repart de zéro.</p>
-
-<p>En mode "as played" avec lock, l'ordre d'ajout des notes définit le motif. Ajouter une note à la fin de la séquence pendant qu'elle tourne insère ce nouveau pas immédiatement au prochain cycle — composition en temps réel.</p>
-
-<div class="note">Usages avancés : arp + lock + changement de voicing — la même séquence MIDI dans un timbre radicalement différent sans toucher au clavier. Arp + subway — synchroniser le BPM avec Mert pour un ensemble cohérent. Arp + MIDI learn sur morph FX — ouvrir progressivement les effets pendant que la séquence tourne.</div>
+<h2>octaves</h2>
+<p>Le sélecteur d'octaves répète le pattern sur plusieurs octaves — +1oct joue chaque note puis son octave supérieure, +2oct sur trois octaves.</p>
 
 </div></details>
 
 <details id="ms-scope"><summary>guide de l'oscilloscope</summary><div class="detail-body">
 
-<p>L'oscilloscope s'ouvre en cliquant sur la waveform dans la barre de status. Il affiche les données audio réelles via un AnalyserNode branché sur le nœud maître.</p>
+<h2>l'oscilloscope</h2>
+<p>L'oscilloscope affiche la forme d'onde du signal audio en temps réel. Il sert à comprendre visuellement ce que font les oscillateurs, les filtres, le wavefolder.</p>
 
-<table>
-  <tr><th>spectre</th><th>nature du son</th></tr>
-  <tr><td>Un seul pic</td><td>oscillateur sinus pur</td></tr>
-  <tr><td>Pics à f, 2f, 3f... décroissants</td><td>dent de scie (tous les harmoniques)</td></tr>
-  <tr><td>Pics à f, 3f, 5f... seulement</td><td>carré (harmoniques impairs uniquement)</td></tr>
-  <tr><td>Pics à positions inharmoniques</td><td>cloche, métal, physique non-linéaire</td></tr>
-  <tr><td>Énergie uniformément distribuée</td><td>bruit blanc</td></tr>
-</table>
-
-<p>Le trigger par passage à zéro montant stabilise l'image. Le nombre de samples affichés s'adapte à la fréquence de la note — toujours 1.5 cycles visibles.</p>
+<p>La forme d'onde d'un sawtooth propre est une dent de scie régulière. Passer par le Moog Ladder arrondit les angles — la résonance crée une bosse avant chaque dent. Le wavefolder replie la forme d'onde sur elle-même — les plis deviennent visibles, chaque pli ajoute des harmoniques. Worn ajoute une irrégularité dans la répétition — c'est la saturation analogique rendue visible.</p>
 
 </div></details>
 
-<details id="ms-rec"><summary>guide de l'enregistrement</summary><div class="detail-body">
+<details id="ms-record"><summary>guide de l'enregistrement</summary><div class="detail-body">
 
-<h2>le bouton enregistrement (●)</h2>
-<p>Démarre l'enregistrement via MediaRecorder. Capture tout — voicings, effets, subway. À l'arrêt, deux fichiers avec le même timestamp :</p>
-<ul>
-  <li><span class="kw">.wav / .webm</span> — audio complet post-effets.</li>
-  <li><span class="kw">.mid</span> — MIDI Standard Format 0, tempo-aware. Les changements de BPM sont encodés en meta-events de tempo.</li>
-</ul>
-<div class="note">Démarrer l'enregistrement avant de jouer — pas après avoir trouvé quelque chose d'intéressant. Les moments qui précèdent la "bonne" idée contiennent souvent quelque chose de plus brut et de plus intéressant.</div>
+<h2>enregistrement</h2>
+<p>Le bouton <span class="kw">rec</span> lance l'enregistrement du signal audio de sortie directement dans le navigateur. L'enregistrement capture tout — le son, les effets, la reverb, la subway.</p>
+
+<p>Cliquer <span class="kw">stop</span> arrête l'enregistrement et génère automatiquement un téléchargement en format WAV. Le fichier est nommé avec la date et l'heure.</p>
+
+<div class="note">L'enregistrement utilise l'API Web Audio MediaRecorder — la qualité dépend du codec disponible dans le navigateur. Chrome utilise Opus/WebM, converti en WAV au téléchargement.</div>
 
 </div></details>
 
 <details id="ms-midi"><summary>guide midi</summary><div class="detail-body">
 
-<p>Le MIDI (Musical Instrument Digital Interface) est le protocole universel de communication entre instruments électroniques depuis 1983. Patine reçoit du MIDI externe via l'API Web MIDI du navigateur.</p>
-<p>Messages reçus : Note On/Off, Pitchbend (±2 demi-tons), CC (Control Change assignables via MIDI learn).</p>
+<h2>connexion MIDI</h2>
+<p>Patine supporte le MIDI via l'API Web MIDI (Chrome uniquement). Connecter un contrôleur MIDI avant d'ouvrir Patine — le navigateur demande la permission d'accès aux périphériques MIDI au premier lancement.</p>
 
-<h2>le midi learn</h2>
-<p>Workflow : cliquer <span class="kw">learn</span> → knobs orange → cliquer le knob → bouger l'encodeur sur le contrôleur → assignation créée. Les assignations persistent dans localStorage.</p>
-<div class="note">Assignations recommandées : encodeur 1 → fm, encodeur 2 → worn, encodeur 3 → morph FX, encodeur 4 → lpg, bouton 1 → panic.</div>
+<h2>ce qui répond au MIDI</h2>
+<ul>
+  <li><span class="kw">Note On/Off</span> — joue les notes avec vélocité</li>
+  <li><span class="kw">Pitch Bend</span> — bend de ±2 demi-tons</li>
+  <li><span class="kw">Modulation (CC1)</span> — contrôle le vibe</li>
+  <li><span class="kw">Volume (CC7)</span> — master volume</li>
+  <li><span class="kw">Expression (CC11)</span> — master volume</li>
+  <li><span class="kw">Sustain (CC64)</span> — pédale de sustain</li>
+</ul>
+
+<h2>MIDI learn</h2>
+<p>Clic droit sur un knob → mode learn → bouger un contrôleur MIDI → le knob est assigné. L'assignation est sauvegardée dans le localStorage.</p>
 
 </div></details>
 
-<details id="ms-creation"><summary>philosophie de création</summary><div class="detail-body">
+<details id="ms-philo"><summary>philosophie de création</summary><div class="detail-body">
 
-<div class="quote">Un instrument n'est pas un outil. Un outil fait ce qu'on lui demande. Un instrument résiste, propose, surprend. Il a une personnalité. La qualité d'un instrument se mesure à la quantité de musique qu'il génère par accident.</div>
+<h2>l'instrument comme résistance</h2>
+<p>Patine cherche à reproduire une résistance dans un navigateur web. Le paramètre <span class="kw">worn</span> est la clé : il n'ajoute pas de défauts au hasard, il simule l'usure spécifique de chaque instrument — la dispersion de phase d'un vieux piano, l'instabilité thermique d'un filtre analogique, la modulation de vitesse d'un lecteur de cassette.</p>
 
-<h2>l'accident comme méthode</h2>
-<p>La plupart des découvertes importantes en synthèse sonore sont des accidents. John Chowning a découvert la FM en jouant avec des délais. Pierre Schaeffer a inventé la musique concrète en manipulant des enregistrements de trains. Robert Moog a conçu son filtre ladder pour imiter les instruments acoustiques et a obtenu quelque chose de radicalement nouveau.</p>
+<p>La résistance d'un instrument crée l'expressivité. Un piano parfaitement accordé, parfaitement régulier, sans aucune imperfection sonne mort. C'est dans l'irrégularité — les cordes légèrement désaccordées, le marteau légèrement usé, la résonance sympathique des cordes non jouées — que le son vit.</p>
 
-<p>Dans Patine, l'accident est encouragé structurellement. Le <span class="kw">worn</span> introduit une imprévisibilité calibrée. La <span class="kw">subway</span> joue sans vous demander la permission. La <span class="kw">matrice réseau</span> crée des interactions que vous n'avez pas toutes choisies consciemment.</p>
+<h2>la lenteur comme pratique</h2>
+<p>Patine n'a pas de séquenceur, pas de groovebox, pas de patterns. Juste un clavier, des sons, et le temps. C'est un choix délibéré — forcer le jeu lent, contemplatif, la note tenue, l'accord qui respire.</p>
 
-<h2>la démarche expérimentale</h2>
-<ul>
-  <li><span class="kw">Une contrainte à la fois</span> — changer un seul paramètre et écouter.</li>
-  <li><span class="kw">Les extrêmes d'abord</span> — comprendre l'étendue avant de chercher la zone intéressante.</li>
-  <li><span class="kw">Les combinaisons improbables</span> — karp·s + brume + minuit. Pian·in orgue + tokyo.</li>
-  <li><span class="kw">Jouer avec la subway</span> — laisser le contexte rythmique guider le jeu.</li>
-  <li><span class="kw">Enregistrer tout</span> — le bouton ● capture l'audio. Les accidents méritent d'être gardés.</li>
-</ul>
+<div class="quote">L'ambient ne se joue pas vite. Elle se laisse déposer.</div>
 
-<h2>la question de l'authenticité</h2>
-<p>Patine ne cherche pas à tromper. Il ne prétend pas être un Moog, un DX7 ou un Buchla. Il s'inspire de ces instruments pour construire quelque chose de nouveau — quelque chose qui n'aurait pu exister que dans un navigateur web, avec la Web Audio API et une architecture pensée comme un dialogue entre cinquante ans de recherche en synthèse sonore.</p>
+<h2>les presets comme point de départ</h2>
+<p>Les presets de Patine ne sont pas des sons finis — ils sont des points de départ. Chaque preset a été conçu pour être modifié en temps réel. Tourner <span class="kw">worn</span> pendant qu'une note tient change fondamentalement le caractère du son. C'est l'instrument qui parle.</p>
 
 </div></details>
 
 <details id="ms-future"><summary>ce qui viendra</summary><div class="detail-body">
 
+<h2>en développement</h2>
 <ul>
-  <li><span class="kw">Presets utilisateur</span> — sauvegarder, nommer et rappeler ses propres configurations. Export/import JSON pour partager entre sessions ou avec d'autres. C'est la fonctionnalité la plus attendue — un son trouvé par accident mérite d'être gardé.</li>
-  <li><span class="kw">Max for Live bridge</span> — Patine comme instrument natif dans Ableton Live.</li>
-  <li><span class="kw">Quantizer dans l'arpégiateur</span> — gammes sélectionnables : pentatonique, dorienne, blues, japonaise.</li>
-  <li><span class="kw">Chord mode</span> — une note joue un accord complet selon la gamme et le renversement.</li>
-  <li><span class="kw">Polyphonie vraie pour karp·s</span> — AudioWorklet au lieu du buffer offline.</li>
+  <li>Vrai portage WASM des engines Plaits (code C++ Mutable Instruments compilé via Emscripten)</li>
+  <li>Polyphonie dans emil·in</li>
+  <li>Glide / portamento ✓ <em>(implémenté)</em></li>
+  <li>Séquenceur minimaliste — pas de pattern complexe, juste une ligne mélodique</li>
 </ul>
 
-<div class="quote">La version 3.0 de Patine est une étape, pas une destination. Ce qui est beau dans un instrument numérique : il peut continuer à grandir sans perdre ce qu'il était.</div>
-
-<hr class="separator">
-<div style="text-align:center;margin-top:40px;padding-top:24px;border-top:1px solid #1a1a1a">
-  <div style="font-size:10px;color:#333;letter-spacing:0.3em;text-transform:uppercase;font-family:monospace">patine — un instrument de synthèse sonore</div>
-  <div style="font-size:10px;color:#2a2a2a;margin-top:6px;letter-spacing:0.15em;font-family:monospace">construit avec la web audio api · version 1.0 · 2026</div>
-</div>
+<h2>ce qui restera hors scope</h2>
+<p>Patine n'aura jamais de groovebox, de step sequencer à 16 pas, de mixer multipiste. Il y a d'excellents outils pour ça. Patine est un instrument de jeu direct, pas un studio.</p>
 
 </div></details>
 
 <details id="ms-vibe"><summary>vibe coding & intelligence artificielle — questions ouvertes</summary><div class="detail-body">
 
-<p>Patine a été construit en grande partie par vibe coding — une pratique qui consiste à décrire ce qu'on veut à un modèle de langage et à itérer avec lui jusqu'à obtenir quelque chose qui fonctionne, qui sonne, qui correspond à une vision. Pas de spécification préalable. Pas d'architecture formelle. Une conversation prolongée, des aller-retours, des accidents exploités, des directions abandonnées.</p>
+<h2>comment patine a été fait</h2>
+<p>Patine est né d'une collaboration prolongée entre un musicien et une intelligence artificielle. Pas de framework, pas de build system — un fichier HTML, une conversation, et beaucoup d'itérations.</p>
 
-<p>Cette section ne prétend pas trancher les débats que cette pratique soulève. Elle les pose, les explore, et laisse chacun se faire son propre avis.</p>
+<p>Le <span class="em">vibe coding</span> est une pratique émergente : coder en langage naturel, laisser l'IA générer le code, tester, corriger, itérer. Ce n'est pas de la programmation au sens classique — c'est plus proche de la direction artistique. On sait ce qu'on veut entendre, pas toujours comment le câbler dans le graphe audio.</p>
 
-<h2>est-ce que ce projet a le droit d'exister ?</h2>
+<h2>les limites honnêtes</h2>
+<p>Les DSP de Patine sont des réimplémentations approximatives. Le worklet Plaits s'inspire du module Mutable Instruments mais n'est pas un portage fidèle. Le Moog Ladder capture la topologie du filtre original mais pas toutes ses non-linéarités. C'est de la lutherie numérique artisanale — pas de l'ingénierie audio.</p>
 
-<p>La question est sincère, pas rhétorique. Quand un instrument de synthèse est généré en grande partie par un modèle d'IA, que reste-t-il de la paternité humaine ? Qui a "fait" Patine ?</p>
+<h2>la question ouverte</h2>
+<p>Qu'est-ce qu'un instrument fait avec une IA ? L'intention musicale vient d'un humain. Le code vient d'une IA. L'oreille qui valide est humaine. La patience pour débugger les fréquences inharmoniques à 2h du matin est... partagée.</p>
 
-<p>La réponse honnête est : les deux, et ni l'un ni l'autre complètement. L'IA a écrit la majorité du code. L'humain a défini chaque intention — le son visé, la philosophie, les arbitrages esthétiques, les refus, les directions. L'IA n'a jamais eu d'oreille. L'humain n'aurait pas écrit seul dix mille lignes de DSP en quelques semaines.</p>
+<div class="quote">Certains se passionnent infiniment pour cette pratique presque ésotérique qui consiste à faire de la musique avec de l'électricité. Patine existe pour eux.</div>
 
-<p>Ce partage n'est pas si différent de ce qu'un musicien fait avec ses outils. Un Juno-60 a été conçu par des ingénieurs Roland. Un plug-in de réverbération a été écrit par des développeurs que l'utilisateur ne connaît pas. La frontière entre "utiliser un outil" et "créer avec un outil" a toujours été poreuse. Ce qui change avec l'IA générative, c'est que l'outil parle — il répond, il propose, il peut sembler avoir des opinions. Ça trouble quelque chose d'essentiel dans notre notion d'auteur.</p>
-
-<h2>est-ce qu'il mérite d'exister ?</h2>
-
-<p>Mérite est un mot chargé. Un instrument mérite d'exister s'il permet à quelqu'un de faire quelque chose qu'il ne pourrait pas faire autrement — ou de le faire différemment, ou de le découvrir. Par ce critère, Patine mérite d'exister si quelqu'un y trouve un son qu'il cherchait, ou qu'il ne cherchait pas mais qui lui dit quelque chose.</p>
-
-<p>La question du mérite est surtout posée par les puristes — et ils ont une part de raison. Un instrument fait avec soin, avec les mains, dans le temps long, avec la résistance du matériau, accumule quelque chose qu'un instrument généré rapidement ne peut pas avoir. Cette différence est réelle. Elle ne rend pas Patine sans valeur. Elle le place ailleurs.</p>
-
-<h2>les puristes, les snobs, les explorateurs</h2>
-
-<p>Dans chaque communauté créative il y a des puristes, des explorateurs et des snobs. Les puristes défendent une pratique contre sa dilution — c'est précieux et nécessaire. Les explorateurs cherchent ce qu'on ne peut faire qu'avec les nouveaux outils — c'est aussi précieux. Les snobs défendent surtout la valeur de leur propre investissement passé contre la dévaluation qu'apportent les nouveaux entrants — c'est humain et moins noble.</p>
-
-<p>La communauté eurorack connaît bien cette tension. Le format a été créé comme alternative démocratique aux gros systèmes modulaires inaccessibles. Il est devenu lui-même une pratique coûteuse, technique, avec ses propres gatekeepers. Les plug-ins qui émulent des modules Eurorack ont d'abord été méprisés, puis acceptés. Les instruments virtuels ont suivi le même chemin.</p>
-
-<p>Le vibe coding va probablement traverser le même cycle. Aujourd'hui méprisé par ceux qui écrivent du code "à la main". Dans dix ans, accepté comme une façon parmi d'autres de construire des outils musicaux. La question n'est pas l'outil — elle est toujours ce qu'on en fait.</p>
-
-<h2>les parallèles avec la pratique modulaire</h2>
-
-<p>Il y a une ironie dans le fait que Patine ait été construit par vibe coding et qu'il contienne une émulation de synthèse modulaire. Les deux pratiques partagent quelque chose : une relation heuristique avec le processus. On patch sans savoir exactement où on va. On itère avec un modèle de langage sans spécification complète. Dans les deux cas, le processus révèle quelque chose qu'on n'avait pas prévu.</p>
-
-<p>Les pionniers de la synthèse modulaire — Buchla, Moog, les femmes du BBC Radiophonic Workshop, les chercheurs des Bell Labs — ont tous travaillé sans savoir exactement ce qu'ils construisaient. Ils exploraient un territoire nouveau avec des outils nouveaux. La légitimité de leur travail ne tenait pas à une méthode validée mais aux sons qu'ils produisaient et à ce que ces sons permettaient d'entendre.</p>
-
-<p>Le vibe coding est une pratique nouvelle dans un territoire nouveau. Sa légitimité se jouera sur le même terrain : est-ce que les choses qu'on fait avec sont intéressantes ? Est-ce qu'elles permettent d'entendre quelque chose de nouveau ?</p>
-
-<h2>l'IA dans la musique — une question ouverte</h2>
-
-<p>L'intelligence artificielle est déjà dans la musique de façon massive et invisible. Les algorithmes de recommandation qui décident ce qu'on écoute. Les outils de mastering automatique. Les plug-ins de séparation de sources. La génération de stems. Les modèles qui composent à partir d'une description textuelle.</p>
-
-<p>Ce qui trouble davantage c'est l'IA générative expressive — celle qui peut écrire une chanson, imiter une voix, composer dans un style. Là la question de la valeur est réelle. Pas parce que la technologie est mauvaise, mais parce qu'elle touche à quelque chose qu'on avait jusqu'ici réservé à l'humain : l'expression singulière d'une expérience vécue.</p>
-
-<p>Mais Patine n'est pas ça. Patine est un outil. Comme un synthétiseur est un outil. Comme un ordinateur est un outil. L'IA a aidé à le construire — elle ne joue pas à travers lui. Ce qui joue, c'est quelqu'un avec des mains, une oreille, une intention, un moment.</p>
-
-<p>La question n'est pas : l'IA va-t-elle remplacer les musiciens ? Elle est : qu'est-ce que les musiciens vont faire avec l'IA que personne n'avait encore fait ? Wendy Carlos a pris un Moog et a enregistré Bach. Delia Derbyshire a pris des bandes magnétiques et a construit un générique de série télévisée qui a traversé soixante ans. Laurie Spiegel a pris un ordinateur de laboratoire et a envoyé de la musique dans l'espace.</p>
-
-<p>Les outils changent. La question de ce qu'on en fait reste entière.</p>
-
-<div class="quote">Patine a été fait avec de la curiosité, du temps, une oreille, et une conversation prolongée avec une intelligence artificielle. Le résultat est imparfait, inachevé, et vivant. Comme tout instrument qui mérite son nom.</div>
-
-</div></details>
 </div></details>
 </div>
 </div>
