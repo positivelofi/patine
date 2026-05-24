@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Patine v1.1</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230e0e0e'/><text x='16' y='24' font-family='monospace' font-size='20' font-weight='500' fill='%23787878' text-anchor='middle'>p</text></svg>">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0e0e0e;color:#898989;font-family:monospace;min-height:100vh}
@@ -4931,7 +4932,8 @@ function setVoicing(v,el){
   const vo=VOICINGS[parent];
   const firstEngine=vo&&vo.presetGroups?vo.presetGroups[0].engine:parent;
   curEngine=firstEngine;
-  _updateControls(firstEngine);
+  // Passer parent à _updateControls pour le bon sous-titre + showEmilinBay correct
+  _updateControls(parent);
   buildMenu();
   if(!arp.lock&&!_loadingPreset)loadPreset(0);
 }
@@ -5850,7 +5852,9 @@ function panicStop(){
     if(n._samplin&&n.src)try{n.src.stop();}catch(e){}
     [n.mo,n.mo2,n.so,n.so2,n.p1,n.p2,n.p3,n.p4,n.wow,n.flutter,n.fmM,n.hiss].forEach(o=>{try{if(o)o.stop();}catch(e){}});
   });
-  for(const k in active)delete active[k];
+  for(const k in active){emDisconnectMatrix(parseInt(k));delete active[k];}
+  // Réinitialiser revGain après déconnexion réseau emilin (modulation résiduelle)
+  if(ctx&&revGain)revGain.gain.setTargetAtTime(P.space*0.6,ctx.currentTime,0.05);
   stopVU();setStatus('■ panic — tous les sons arrêtés');
 }
 function setStatus(t){document.getElementById('status-txt').textContent=t;}
