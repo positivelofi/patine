@@ -1765,40 +1765,43 @@ function playNote(midi,vel=0.75,dest){
     if(_fmode==='acid'){
       res=0.2+P.worn*0.75; drive=0.4+P.worn*0.6;
     } else if(curEngine==='padin'){
-      // Nappe — filtre doux, pas de résonance agressive
-      res=P.worn*0.25;        // résonance très douce
-      drive=P.worn*0.3;       // drive subtil
+      res=P.worn*0.25; drive=P.worn*0.3;
     } else {
       res=P.worn*0.6; drive=P.worn*0.8;
     }
     moogNode.parameters.get('resonance').value=res;
     moogNode.parameters.get('drive').value=drive;
     moogNode.parameters.get('gain').value=1.0;
+    // Moduler le cutoff avec l'enveloppe — même comportement que le LPG v1.0
+    const lpgBase=P.cut*(0.15+sus*0.55);
+    moogNode.parameters.get('cutoff').setValueAtTime(cutoffNorm*0.05,now);
+    moogNode.parameters.get('cutoff').linearRampToValueAtTime(cutoffNorm,now+att+0.002);
+    moogNode.parameters.get('cutoff').exponentialRampToValueAtTime(Math.max(0.001,lpgBase),now+att+dec);
     const moogIn=ctx.createGain();moogIn.gain.value=1;
     rootG.connect(moogIn);moogIn.connect(moogNode);
     moogNode.connect(fold);fold.connect(sat);
     sat.connect(lG);sat.connect(rG);
     active[midi]={rootG,moogNode,moogIn,fold,sat,mo,mo2,so,so2,p1,p2,p3,p4,wow,flutter,fmM,fmD,hiss,rel,merger,lG,rG,epOscs,pianeOscs,f,mf,mg,sf,sg,driftG,_vm:vm,_fmode};
   } else {
-    // ── Mode LPG (vrai Low Pass Gate) ou fallback BiquadFilter ────────
+    // ── LPG dynamique v1.0 ou mode LPG explicite ─────────────────────
+    const lpgBase=200+P.cut*3000+m*1200+P.body*400;
     const flt=ctx.createBiquadFilter();flt.type='lowpass';
     if(_fmode==='lpg'){
-      // LPG : cutoff et amplitude couplés — ouverture/fermeture simultanées
-      // cutHz suit l'enveloppe : frappe → ouvre, decay → referme naturellement
-      const lpgEnvHz=cutHz*(0.05+sus*0.6);
-      flt.frequency.setValueAtTime(cutHz*0.03,now);
-      flt.frequency.linearRampToValueAtTime(cutHz,now+att+0.002);
-      flt.frequency.exponentialRampToValueAtTime(Math.max(30,lpgEnvHz),now+att+dec);
+      // LPG explicite : couplage amplitude + fréquence (Buchla)
+      flt.frequency.setValueAtTime(lpgBase*0.03,now);
+      flt.frequency.linearRampToValueAtTime(lpgBase,now+att+0.002);
+      flt.frequency.exponentialRampToValueAtTime(Math.max(30,lpgBase*(0.05+sus*0.5)),now+att+dec);
       flt.Q.value=0.5;
-      // Gain couplé : l'amplitude suit aussi la fréquence (comportement Buchla)
       rootG.gain.cancelScheduledValues(now);
       rootG.gain.setValueAtTime(0,now);
       rootG.gain.linearRampToValueAtTime(peakGain,now+att+0.002);
       rootG.gain.exponentialRampToValueAtTime(Math.max(0.001,peakGain*(0.05+sus*0.5)),now+att+dec);
     } else {
-      // Fallback : simple lowpass
-      flt.frequency.value=cutHz;
-      flt.Q.value=0.6;
+      // Fallback moog sans worklet — LPG dynamique comme v1.0
+      flt.frequency.setValueAtTime(lpgBase*0.25,now);
+      flt.frequency.linearRampToValueAtTime(lpgBase,now+att*0.7);
+      flt.frequency.exponentialRampToValueAtTime(Math.max(60,lpgBase*(0.15+sus*0.55)),now+att+dec);
+      flt.Q.value=0.8+P.cut*3.5;
     }
     rootG.connect(flt);flt.connect(fold);fold.connect(sat);
     sat.connect(lG);sat.connect(rG);
@@ -2911,11 +2914,7 @@ function showEmilinBay(show){
   bay.style.display=show?'block':'none';
   if(show){
     buildReseauGrid();
-    if(ctx){
-      emInitModulation();
-      if(!_worklets["plaits"])ensureWorklet("plaits",PLAITS_WORKLET_CODE);
-      if(!_worklets["moog-ladder"])ensureWorklet("moog-ladder",MOOG_WORKLET_CODE);
-    }
+    if(ctx)emInitModulation();
   }
 }
 // ═══════════════════════════════════════════════════════
@@ -3680,9 +3679,9 @@ function getEmilinEngine(){
 // ═══════════════════════════════════════════════════════
 function playEmilinNote(midi,vel=0.75){
   initCtx();if(active[midi])return;
-  if(ctx&&!_worklets['plaits'])ensureWorklet('plaits',PLAITS_WORKLET_CODE);
-  if(ctx&&!_worklets['moog-ladder'])ensureWorklet('moog-ladder',MOOG_WORKLET_CODE);
   if(ctx.state==='suspended')ctx.resume();
+  if(!_worklets['plaits'])ensureWorklet('plaits',PLAITS_WORKLET_CODE);
+  if(!_worklets['moog-ladder'])ensureWorklet('moog-ladder',MOOG_WORKLET_CODE);
   window._scopeLastGood=null;window._scopeFreezeTimer=0;window._scopeSmooth=null;
   recNoteOn(midi,vel);
 
@@ -3699,7 +3698,7 @@ function playEmilinNote(midi,vel=0.75){
   const eng=getEmilinEngine();
 
   const rootG=ctx.createGain();
-  rootG.gain.value=1.0; // gain fixe — l'enveloppe est portée par ampGain uniquement
+  rootG.gain.value=1.0; // fixe — l'ADSR est portée par ampGain uniquement
 
   // Exposer l'enveloppe pour la matrice de modulation
   emInitModulation();
@@ -4938,7 +4937,6 @@ function setVoicing(v,el){
   const vo=VOICINGS[parent];
   const firstEngine=vo&&vo.presetGroups?vo.presetGroups[0].engine:parent;
   curEngine=firstEngine;
-  // Passer parent à _updateControls pour le bon sous-titre + showEmilinBay correct
   _updateControls(parent);
   buildMenu();
   if(!arp.lock&&!_loadingPreset)loadPreset(0);
@@ -5859,7 +5857,6 @@ function panicStop(){
     [n.mo,n.mo2,n.so,n.so2,n.p1,n.p2,n.p3,n.p4,n.wow,n.flutter,n.fmM,n.hiss].forEach(o=>{try{if(o)o.stop();}catch(e){}});
   });
   for(const k in active){emDisconnectMatrix(parseInt(k));delete active[k];}
-  // Réinitialiser revGain après déconnexion réseau emilin (modulation résiduelle)
   if(ctx&&revGain)revGain.gain.setTargetAtTime(P.space*0.6,ctx.currentTime,0.05);
   stopVU();setStatus('■ panic — tous les sons arrêtés');
 }
@@ -6636,7 +6633,7 @@ subway.who='off';
 <details id="ms-vibe"><summary>vibe coding & intelligence artificielle — questions ouvertes</summary><div class="detail-body">
 
 <h2>comment patine a été fait</h2>
-<p>Patine est né d'une collaboration prolongée entre un musicien et une intelligence artificielle. Pas de framework, pas de build system — un fichier HTML, une conversation, et beaucoup d'itérations.</p>
+<p>Patine est né d'une collaboration prolongée entre un musicien-kinésithérapeute lyonnais et une intelligence artificielle. Pas de framework, pas de build system — un fichier HTML, une conversation, et beaucoup d'itérations.</p>
 
 <p>Le <span class="em">vibe coding</span> est une pratique émergente : coder en langage naturel, laisser l'IA générer le code, tester, corriger, itérer. Ce n'est pas de la programmation au sens classique — c'est plus proche de la direction artistique. On sait ce qu'on veut entendre, pas toujours comment le câbler dans le graphe audio.</p>
 
